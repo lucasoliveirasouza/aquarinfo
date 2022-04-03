@@ -34,7 +34,7 @@ class _FreshwaterFishFilterViewState extends State<FreshwaterFishFilterView> {
                     color: Colors.green.shade100,
                     child: ListTile(
                       title: Text(
-                        'Mato Grosso',
+                        'Mato Grosso ',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 22,
