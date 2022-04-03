@@ -27,20 +27,23 @@ class _FreshwaterFishFilterViewState extends State<FreshwaterFishFilterView> {
                 children: [
 
                   SizedBox(
-                    width: 110,
-                    height: 110,
-                    child: Image.asset("assets/fishlogin.png"),
+
+                    child: Image.asset("assets/images/matogrosso.png"),
                   ),
-                  ListTile(
-                    title: Text(
-                      'Peixe',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
+                  Container(
+                    color: Colors.green.shade100,
+                    child: ListTile(
+                      title: Text(
+                        'Mato Grosso',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
+                  )
+
                 ],
               ),
             ),
