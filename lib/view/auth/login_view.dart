@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:infoquario/view/home/home.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -102,7 +103,14 @@ class _LoginViewState extends State<LoginView> {
               padding: EdgeInsets.only(right: 50, left: 50),
               child: ElevatedButton(
                 child: Text("Entrar"),
-                onPressed: () {  },
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomeView(),
+                    ),
+                  );
+                },
               ),
             ),
             SizedBox(

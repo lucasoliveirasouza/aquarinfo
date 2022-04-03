@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:infoquario/view/freshwater_fish/freshwater_fish_view.dart';
+import 'package:infoquario/view/menu/menu_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -12,9 +14,11 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Entrei"),
-      ),
+        drawer: MenuView(),
+        appBar: AppBar(
+          title: Text("Peixes de água doce"),
+        ),
+        body: FreshwaterFishView(),
     );
   }
 }
