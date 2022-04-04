@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -38,6 +35,15 @@ class DefaultFirebaseOptions {
         );
     }
   }
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBeM9Y_LwQBbKTfaWPi64EG_R5mg2bA2pc',
+    appId: '1:249328358820:web:a3657cd0ed63b44167dd31',
+    messagingSenderId: '249328358820',
+    projectId: 'infoquario',
+    authDomain: 'infoquario.firebaseapp.com',
+    storageBucket: 'infoquario.appspot.com',
+  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBLnhqZc1_NkJzIYLppaNO7UzJLCDJzpu8',

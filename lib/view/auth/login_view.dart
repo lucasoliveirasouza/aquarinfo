@@ -1,7 +1,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:infoquario/services/auth_service.dart';
 import 'package:infoquario/view/home/home.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -11,6 +13,38 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  final formKey = GlobalKey<FormState>();
+  final senha = TextEditingController();
+  final email = TextEditingController();
+
+  bool isLogin = true;
+
+  late String titulo;
+  late String actionButton;
+  late String toggleButton;
+
+  void initState(){
+    super.initState();
+    setFormAction(true);
+  }
+
+  setFormAction(bool acao){
+    setState(() {
+      isLogin = acao;
+      if(isLogin){
+        titulo = "Bem vindo";
+        actionButton = "Entrar";
+        toggleButton = "Ainda não tem conta? Cadastre-se agora";
+      }else{
+        titulo = "Crie sua conta";
+        actionButton = "Cadastrar";
+        toggleButton = "Voltar ao login";
+      }
+    });
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +69,7 @@ class _LoginViewState extends State<LoginView> {
             ),
             Center(
               child: Text(
-                "Infoquário",
+                titulo,
                 style: TextStyle(
                   fontSize: 25,
                   color: Colors.green,
@@ -47,6 +81,7 @@ class _LoginViewState extends State<LoginView> {
               height: 20,
             ),
             TextFormField(
+              controller: email,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                   labelText: "E-mail",
@@ -71,6 +106,7 @@ class _LoginViewState extends State<LoginView> {
               height: 20,
             ),
             TextFormField(
+              controller: senha,
               keyboardType: TextInputType.text,
               obscureText: true,
               decoration: InputDecoration(
@@ -102,14 +138,13 @@ class _LoginViewState extends State<LoginView> {
               height: 50,
               padding: EdgeInsets.only(right: 50, left: 50),
               child: ElevatedButton(
-                child: Text("Entrar"),
+                child: Text(actionButton),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeView(),
-                    ),
-                  );
+                  if(isLogin){
+                    login();
+                  }else{
+                    registrar();
+                  }
                 },
               ),
             ),
@@ -117,9 +152,40 @@ class _LoginViewState extends State<LoginView> {
               height: 20,
             ),
 
+            Container(
+              height: 40,
+              alignment: Alignment.center,
+
+
+              child: TextButton(
+                child: Text(
+                  toggleButton,
+                ),
+                onPressed: (){
+                  setFormAction(!isLogin);
+                },
+              )
+            ),
+
           ],
         ),
       ),
     );
+  }
+
+  login() async{
+    try{
+      await context.read<AuthService>().login(email.text, senha.text);
+    }on AuthException catch(e){
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message)));
+    }
+  }
+  registrar() async{
+    try{
+      await context.read<AuthService>().registrar(email.text, senha.text);
+
+    }on AuthException catch(e){
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message)));
+    }
   }
 }

@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:infoquario/services/auth_service.dart';
 import 'package:infoquario/view/about/about_view.dart';
 import 'package:infoquario/view/aquarium/aquarium_view.dart';
 import 'package:infoquario/view/crustacean/crustacean_view.dart';
@@ -150,7 +151,7 @@ class _MenuViewState extends State<MenuView> {
             ),
             title: Text('Sair'),
             onTap: () => {
-              Navigator.of(context).pop()
+              AuthService().logout()
             },
           ),
 

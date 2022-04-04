@@ -43,7 +43,6 @@ class _FreshwaterFishFilterViewState extends State<FreshwaterFishFilterView> {
                       ),
                     ),
                   )
-
                 ],
               ),
             ),

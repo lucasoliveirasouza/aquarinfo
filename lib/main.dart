@@ -1,16 +1,31 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:infoquario/view/auth/login_view.dart';
+import 'package:infoquario/firebase_options.dart';
+import 'package:infoquario/services/auth_service.dart';
+import 'package:infoquario/view/auth/auth_check.dart';
 
+import 'package:provider/provider.dart';
 
 void main() async {
 
-  runApp(
-     MyApp(),
-    );
+  WidgetsFlutterBinding.ensureInitialized();
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => AuthService()),
+        ],
+        child: MyApp(),
+      )
+
+  );
 }
+
+
 
 
 class MyApp extends StatelessWidget {
@@ -25,7 +40,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: LoginView(),
+      home: AuthCheck(),
     );
   }
 }
