@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:infoquario/view/freshwater_fish/freshwater_fish_view.dart';
 import 'package:infoquario/view/menu/menu_view.dart';
+import 'package:infoquario/view/peixe_agua_doce/peixe_agua_doce.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class _HomeViewState extends State<HomeView> {
         appBar: AppBar(
           title: Text("Peixes de água doce"),
         ),
-        body: FreshwaterFishView(),
+        body: PeixeAguaDoceView(),
     );
   }
 }

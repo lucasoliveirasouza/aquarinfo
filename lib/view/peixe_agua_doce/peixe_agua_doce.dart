@@ -1,18 +1,20 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:infoquario/view/freshwater_fish/filter/freshwater_fish_filter_view.dart';
+import 'package:infoquario/view/peixe_agua_doce/peixe_agua_doce_cadastro.dart';
+import 'package:infoquario/view/peixe_agua_doce/peixe_agua_doce_lista.dart';
+
 
 import 'package:infoquario/widget/card_item.dart';
 
-class FreshwaterFishView extends StatefulWidget {
-  const FreshwaterFishView({Key? key}) : super(key: key);
+class PeixeAguaDoceView extends StatefulWidget {
+  const PeixeAguaDoceView({Key? key}) : super(key: key);
 
   @override
-  _FreshwaterFishViewState createState() => _FreshwaterFishViewState();
+  _PeixeAguaDoceViewState createState() => _PeixeAguaDoceViewState();
 }
 
-class _FreshwaterFishViewState extends State<FreshwaterFishView> {
+class _PeixeAguaDoceViewState extends State<PeixeAguaDoceView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +34,7 @@ class _FreshwaterFishViewState extends State<FreshwaterFishView> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FreshwaterFishFilterView(tipo: "Todos"),
+                    builder: (context) => PeixeAguaDoceListaView(tipo: "Todos"),
                   ),
                 );
               },
@@ -45,7 +47,7 @@ class _FreshwaterFishViewState extends State<FreshwaterFishView> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FreshwaterFishFilterView(tipo: "Carnívoros"),
+                    builder: (context) => PeixeAguaDoceListaView(tipo: "Carnívoros"),
                   ),
                 );
               },
@@ -58,7 +60,7 @@ class _FreshwaterFishViewState extends State<FreshwaterFishView> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FreshwaterFishFilterView(tipo: "Herbívoros"),
+                    builder: (context) => PeixeAguaDoceListaView(tipo: "Herbívoros"),
                   ),
                 );
               },
@@ -71,7 +73,7 @@ class _FreshwaterFishViewState extends State<FreshwaterFishView> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FreshwaterFishFilterView(tipo: "Onívoros"),
+                    builder: (context) => PeixeAguaDoceListaView(tipo: "Onívoros"),
                   ),
                 );
               },
@@ -85,7 +87,7 @@ class _FreshwaterFishViewState extends State<FreshwaterFishView> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FreshwaterFishFilterView(tipo: "Planctógafos"),
+                    builder: (context) => PeixeAguaDoceListaView(tipo: "Planctógafos"),
                   ),
                 );
               },
@@ -99,7 +101,7 @@ class _FreshwaterFishViewState extends State<FreshwaterFishView> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FreshwaterFishFilterView(tipo: "Detritívoros"),
+                    builder: (context) => PeixeAguaDoceListaView(tipo: "Detritívoros"),
                   ),
                 );
               },
@@ -107,7 +109,20 @@ class _FreshwaterFishViewState extends State<FreshwaterFishView> {
 
           ],
         )
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.add,
+        ),
+        onPressed: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PeixeAguaDoceCadastroView()
+            ),
+          );
+        },
+      ),
     );
   }
 }
