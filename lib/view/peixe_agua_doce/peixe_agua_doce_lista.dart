@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:infoquario/models/peixe_agua_doce.dart';
 import 'package:infoquario/services/peixe_agua_doce_service.dart';
+import 'package:infoquario/view/peixe_agua_doce/peixe_agua_doce_detalhes.dart';
 
 class PeixeAguaDoceListaView extends StatefulWidget {
   String tipo;
@@ -38,7 +39,12 @@ class _PeixeAguaDoceListaViewState extends State<PeixeAguaDoceListaView> {
                       title: Text( snapshot.data![index]!.nomeCientifico),
                       subtitle: Text( snapshot.data![index]!.tipo),
                       onTap: (){
-
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PeixeAguaDoceDetalhesView(peixe: snapshot.data![index]!),
+                          ),
+                        );
                       },
                     ),
 

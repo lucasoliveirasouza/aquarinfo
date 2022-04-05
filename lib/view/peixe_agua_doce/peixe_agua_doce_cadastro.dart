@@ -12,9 +12,9 @@ class PeixeAguaDoceCadastroView extends StatefulWidget {
 
 class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
   final nomeCientifico = TextEditingController();
-  final tipo = TextEditingController();
   final nomePopular = TextEditingController();
   final expectativa = TextEditingController();
+  String tipo = 'Carnívoros';
 
   @override
   Widget build(BuildContext context) {
@@ -44,19 +44,30 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
             SizedBox(
               height: 20,
             ),
-            TextFormField(
-              controller: tipo,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                  labelText: "Tipo",
-                  labelStyle: TextStyle(
-                    color: Colors.black38,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20,
-                  )
-              ),
-              style: TextStyle(
-                fontSize: 20,
+
+            Container(
+              child: DropdownButtonFormField<String>(
+                value: tipo,
+                icon: Icon(null),
+                elevation: 15,
+                decoration: InputDecoration(labelText: 'Responsável'),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    tipo = newValue!;
+                  });
+                },
+                items: <String>[
+                  'Carnívoros',
+                  'Herbívoros',
+                  'Onívoros',
+                  'Planctógafos',
+                  'Detritívoros',
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
               ),
             ),
             SizedBox(
@@ -104,7 +115,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
               child: ElevatedButton(
                 child: Text("Cadastrar"),
                 onPressed: () {
-                  PeixeAguaDoceService().registerFreshwater(nomeCientifico.text, tipo.text,nomePopular.text, expectativa.text);
+                  PeixeAguaDoceService().registerFreshwater(nomeCientifico.text, tipo,nomePopular.text, expectativa.text);
                   Navigator.of(context).pop();
                 },
               ),
