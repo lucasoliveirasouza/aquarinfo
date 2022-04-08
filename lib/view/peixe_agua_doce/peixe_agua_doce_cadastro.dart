@@ -1,6 +1,10 @@
 
 
+import 'dart:io';
+
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:infoquario/services/peixe_agua_doce_service.dart';
 
 class PeixeAguaDoceCadastroView extends StatefulWidget {
@@ -16,6 +20,32 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
   final expectativa = TextEditingController();
   String tipo = 'Carnívoros';
 
+  final FirebaseStorage storage = FirebaseStorage.instance;
+
+  Future<void> upload(String path) async{
+    File file = File(path);
+    try{
+      String ref = 'images/img-${DateTime.now().toString()}.png';
+      await storage.ref(ref).putFile(file);
+    } on FirebaseException catch(e){
+       throw Exception("Erro no upload: ${e.code}");
+    }
+
+  }
+
+  Future<XFile?> getImage() async{
+    final ImagePicker _picker = ImagePicker();
+    XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    return image;
+  }
+
+  pickAndUploadImage() async{
+    XFile? file = await getImage();
+    if(file != null){
+
+      await upload(file.path);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,6 +134,19 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
               ),
               style: TextStyle(
                 fontSize: 20,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 50,
+              padding: EdgeInsets.only(right: 50, left: 50),
+              child: ElevatedButton(
+                child: Text("Buscar imagem"),
+                onPressed: () {
+                  pickAndUploadImage();
+                },
               ),
             ),
             SizedBox(
