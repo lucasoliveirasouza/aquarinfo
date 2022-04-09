@@ -28,8 +28,8 @@ class CardItem extends StatelessWidget{
               children: [
                 SizedBox(
 
-                  width: 110,
-                  height: 110,
+                  width: 100,
+                  height: 100,
                   child: Image.asset("assets/images/" + image),
                 ),
                 SizedBox(
@@ -39,7 +39,7 @@ class CardItem extends StatelessWidget{
                   child: Text(
                     title,
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                     ),
                   ),
                 )

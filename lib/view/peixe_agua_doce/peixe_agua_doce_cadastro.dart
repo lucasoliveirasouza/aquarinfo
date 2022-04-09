@@ -15,37 +15,18 @@ class PeixeAguaDoceCadastroView extends StatefulWidget {
 }
 
 class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
+  final FirebaseStorage storage = FirebaseStorage.instance;
+
   final nomeCientifico = TextEditingController();
   final nomePopular = TextEditingController();
   final expectativa = TextEditingController();
+  String imagem = "";
+  String carregar = "Carregue uma imagem";
   String tipo = 'Carnívoros';
+  bool uploading = false;
+  double total = 0;
 
-  final FirebaseStorage storage = FirebaseStorage.instance;
 
-  Future<void> upload(String path) async{
-    File file = File(path);
-    try{
-      String ref = 'images/img-${DateTime.now().toString()}.png';
-      await storage.ref(ref).putFile(file);
-    } on FirebaseException catch(e){
-       throw Exception("Erro no upload: ${e.code}");
-    }
-
-  }
-
-  Future<XFile?> getImage() async{
-    final ImagePicker _picker = ImagePicker();
-    XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    return image;
-  }
-
-  pickAndUploadImage() async{
-    XFile? file = await getImage();
-    if(file != null){
-
-      await upload(file.path);
-    }
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,15 +120,23 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
             SizedBox(
               height: 20,
             ),
+
+
             Container(
               height: 50,
               padding: EdgeInsets.only(right: 50, left: 50),
-              child: ElevatedButton(
-                child: Text("Buscar imagem"),
+              child: IconButton(
+                icon: Icon(Icons.file_upload),
                 onPressed: () {
                   pickAndUploadImage();
                 },
-              ),
+              )
+
+
+            ),
+            Center(
+              child: uploading? Text("${total.round()}% enviado")
+                  : Text(carregar),
             ),
             SizedBox(
               height: 20,
@@ -158,8 +147,14 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
               child: ElevatedButton(
                 child: Text("Cadastrar"),
                 onPressed: () {
-                  PeixeAguaDoceService().registerFreshwater(nomeCientifico.text, tipo,nomePopular.text, expectativa.text);
-                  Navigator.of(context).pop();
+                  if(imagem == ""){
+
+                  }else{
+                    PeixeAguaDoceService().registerFreshwater(nomeCientifico.text, tipo,nomePopular.text, expectativa.text, imagem);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Peixe adicionado com sucesso")));
+                    Navigator.of(context).pop();
+                  }
+
                 },
               ),
             ),
@@ -167,5 +162,44 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
         ),
       ),
     );
+  }
+  Future<UploadTask> upload(String path) async{
+    File file = File(path);
+    try{
+      String ref = 'images/img-${DateTime.now().toString()}.png';
+      imagem = ref;
+      return storage.ref(ref).putFile(file);
+    } on FirebaseException catch(e){
+      throw Exception("Erro no upload: ${e.code}");
+    }
+
+  }
+
+  Future<XFile?> getImage() async{
+    final ImagePicker _picker = ImagePicker();
+    XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    return image;
+  }
+
+  pickAndUploadImage() async{
+    XFile? file = await getImage();
+    if(file != null){
+
+      UploadTask task = await upload(file.path);
+
+      task.snapshotEvents.listen((TaskSnapshot snapshot) async{
+        if(snapshot.state == TaskState.running){
+          setState(() {
+            uploading = true;
+            total = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          });
+        }else if(snapshot.state == TaskState.success){
+          setState(() {
+            carregar = "Imagem anexada";
+            uploading = false;
+          });
+        }
+      });
+    }
   }
 }

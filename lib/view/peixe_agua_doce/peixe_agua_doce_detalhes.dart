@@ -1,5 +1,6 @@
 
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/models/peixe_agua_doce.dart';
 
@@ -12,8 +13,16 @@ class PeixeAguaDoceDetalhesView extends StatefulWidget {
 }
 
 class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
+  final FirebaseStorage storage = FirebaseStorage.instance;
+
+
+
+
   @override
   Widget build(BuildContext context) {
+    Reference teste = storage.ref(widget.peixe.imagem);
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.peixe.nomePopular),
@@ -32,7 +41,11 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
             ),
             ListTile(
               title: Text("Expectativa de vida: " + widget.peixe.expectativa),
-            )
+            ),
+            ListTile(
+              title: Text("Imagem: " + widget.peixe.imagem),
+            ),
+
           ],
         ),
       ),

@@ -10,24 +10,29 @@ class PeixeAguaDoceService{
 
   }
 
-  void registerFreshwater(nomeCientifico, tipo, nomePopular, expectativa){
+  void registerFreshwater(nomeCientifico, tipo, nomePopular, expectativa, imagem){
     freshwater.add({
       'nomeCientifico': nomeCientifico, // John Doe
       'tipo': tipo,
       'nomePopular': nomePopular,
       'expectativa': expectativa,
+      'imagem': imagem,
     });
   }
 
-  Future<List<PeixeAguaDoce?>?> getAll() async {
-
+  Future<List<PeixeAguaDoce?>?> getAll(tipo) async {
     List<PeixeAguaDoce> posts = [];
 
     QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('peixeaguadoce').get();
-
     snapshot.docs.forEach((d) {
-      PeixeAguaDoce peixe = new PeixeAguaDoce(d["nomeCientifico"], d["tipo"], d["nomePopular"], d["expectativa"]);
-      posts.add(peixe);
+      PeixeAguaDoce peixe = new PeixeAguaDoce(d["nomeCientifico"], d["tipo"], d["nomePopular"], d["expectativa"],d["imagem"]);
+
+      if(d["tipo"]==tipo){
+        posts.add(peixe);
+      }else if(tipo == "Todos"){
+        posts.add(peixe);
+      }
+
     });
 
     return posts;

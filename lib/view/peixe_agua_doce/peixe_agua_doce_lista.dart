@@ -1,5 +1,6 @@
 
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:infoquario/models/peixe_agua_doce.dart';
@@ -16,82 +17,49 @@ class PeixeAguaDoceListaView extends StatefulWidget {
 
 class _PeixeAguaDoceListaViewState extends State<PeixeAguaDoceListaView> {
 
-
-  Future<List<PeixeAguaDoce?>?> futureList = PeixeAguaDoceService().getAll();
-
   @override
   Widget build(BuildContext context) {
+    Future<List<PeixeAguaDoce?>?> futureList = PeixeAguaDoceService().getAll(widget.tipo);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.tipo),
-      ),
-      body:Container(
-        padding: EdgeInsets.only(right: 10, left: 10),
-        child: FutureBuilder(
+        appBar: AppBar(
+          title: Text(widget.tipo),
+        ),
+        body: Container(
+            padding: EdgeInsets.only(right: 10, left: 10),
+            child: FutureBuilder(
 
-          future: futureList,
-          builder:
-              (BuildContext context, AsyncSnapshot<List<PeixeAguaDoce?>?> snapshot) {
-            return ListView.builder(
-                itemCount: snapshot.data?.length ?? 0,
-                shrinkWrap: true,
-                itemBuilder: ((context, index) {
-
-                  return Card(
-                    child: ListTile(
-                      title: Text( snapshot.data![index]!.nomeCientifico),
-                      subtitle: Text( snapshot.data![index]!.tipo),
-                      onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PeixeAguaDoceDetalhesView(peixe: snapshot.data![index]!),
+                future: futureList,
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<PeixeAguaDoce?>?> snapshot) {
+                  return ListView.builder(
+                      itemCount: snapshot.data?.length ?? 0,
+                      shrinkWrap: true,
+                      itemBuilder: ((context, index) {
+                        return Card(
+                          child: ListTile(
+                            title: Text(snapshot.data![index]!.nomeCientifico),
+                            subtitle: Text(snapshot.data![index]!.tipo),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      PeixeAguaDoceDetalhesView(
+                                          peixe: snapshot.data![index]!),
+                                ),
+                              );
+                            },
                           ),
+
                         );
-                      },
-                    ),
+                      }
+
+                      )
 
                   );
-                }));
-          },
-        ),
-      ),
-
-
-
-
-      /*Container(
-        padding: EdgeInsets.all(15),
-        child: ListView(
-          children: [
-            Card(
-                clipBehavior: Clip.antiAlias,
-                child: Column(
-                children: [
-
-                  SizedBox(
-
-                    child: Image.asset("assets/images/matogrosso.png"),
-                  ),
-                  Container(
-                    color: Colors.green.shade100,
-                    child: ListTile(
-                      title: Text(
-                        'Mato Grosso ',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ]
+                }
+            )
         )
-      )*/
     );
   }
 }
