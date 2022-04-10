@@ -29,12 +29,12 @@ class _TartarugaViewState extends State<TartarugaView> {
                 title: "Água doce",
                 color: Colors.green.shade100,
                 onTap: (){
-                  /*Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CrustaceoTipoView(tipoAgua: "doce"),
+                      builder: (context) => TartarugaLista(tipoAgua: "doce"),
                     ),
-                  );*/
+                  );
                 },
               ),
               CardItem(

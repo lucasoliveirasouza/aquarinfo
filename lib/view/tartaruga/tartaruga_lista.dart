@@ -2,15 +2,15 @@
 
 import 'package:flutter/material.dart';
 
-class TartarugaLista extends StatefulWidget {
+class TartarugaListaView extends StatefulWidget {
   String tipoAgua;
-  TartarugaLista({Key? key, required this.tipoAgua}) : super(key: key);
+  TartarugaListaView({Key? key, required this.tipoAgua}) : super(key: key);
 
   @override
-  _TartarugaListaState createState() => _TartarugaListaState();
+  _TartarugaListaViewState createState() => _TartarugaListaViewState();
 }
 
-class _TartarugaListaState extends State<TartarugaLista> {
+class _TartarugaListaViewState extends State<TartarugaListaView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
