@@ -57,13 +57,13 @@ class _MenuViewState extends State<MenuView> {
             },
           ),
           ListTile(
-            leading:
-
-            CircleAvatar(
-              radius: 13,
-              backgroundImage: AssetImage('assets/shark.png'),
-              backgroundColor: Colors.transparent,
+            leading: SizedBox(
+              width: 22,
+              height: 22,
+              child: Image.asset('assets/shark.png'),
             ),
+
+
             title: Text('Peixes de água salgada'),
             onTap: () => {
               Navigator.push(

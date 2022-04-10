@@ -20,7 +20,7 @@ class _AboutViewState extends State<AboutView> {
         child: Container(
 
           padding: EdgeInsets.only(
-            top: 200,
+            top: 100,
             left: 40,
             right: 40,
           ),
