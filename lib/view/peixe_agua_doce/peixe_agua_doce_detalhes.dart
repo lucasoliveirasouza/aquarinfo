@@ -3,6 +3,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/models/peixe_agua_doce.dart';
+import 'package:infoquario/services/peixe_agua_doce_service.dart';
 
 class PeixeAguaDoceDetalhesView extends StatefulWidget {
   PeixeAguaDoce peixe;
@@ -21,6 +22,7 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
   @override
   Widget build(BuildContext context) {
     Reference teste = storage.ref(widget.peixe.imagem);
+    final img = teste.getDownloadURL();
 
     return Scaffold(
       appBar: AppBar(
@@ -30,12 +32,17 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
         padding: EdgeInsets.all(20),
         child: ListView(
           children: [
-
-            SizedBox(
-              height: 250,
-              width: 250,
-              child: Image.network("https://firebasestorage.googleapis.com/v0/b/infoquario.appspot.com/o/images%2Fimg-2022-04-10%2012%3A00%3A24.590132.png?alt=media&token=ac0a97fd-168f-4797-8f8c-3edb40e9a3f9"),
+            FutureBuilder(
+                future: img,
+                builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
+                  return SizedBox(
+                      height: 250,
+                      width: 250,
+                      child: Image.network(snapshot.data ?? "https://firebasestorage.googleapis.com/v0/b/infoquario.appspot.com/o/images%2Fimg-2022-04-10%2012%3A00%3A24.590132.png?alt=media&token=ac0a97fd-168f-4797-8f8c-3edb40e9a3f9"),
+                  );
+                }
             ),
+
             SizedBox(
               height: 5,
             ),
@@ -178,7 +185,6 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
             SizedBox(
               height: 5,
             ),
-
             Text(
               "Dificuldade de criação: " + widget.peixe.dificuldade,
               style: TextStyle(
@@ -194,3 +200,4 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
     );
   }
 }
+

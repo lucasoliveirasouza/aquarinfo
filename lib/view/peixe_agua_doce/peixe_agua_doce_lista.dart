@@ -16,7 +16,7 @@ class PeixeAguaDoceListaView extends StatefulWidget {
 }
 
 class _PeixeAguaDoceListaViewState extends State<PeixeAguaDoceListaView> {
-
+  final FirebaseStorage storage = FirebaseStorage.instance;
   @override
   Widget build(BuildContext context) {
     Future<List<PeixeAguaDoce?>?> futureList = PeixeAguaDoceService().getAll(widget.tipo);
@@ -31,16 +31,26 @@ class _PeixeAguaDoceListaViewState extends State<PeixeAguaDoceListaView> {
                 future: futureList,
                 builder: (BuildContext context,
                     AsyncSnapshot<List<PeixeAguaDoce?>?> snapshot) {
+
                   return ListView.builder(
                       itemCount: snapshot.data?.length ?? 0,
                       shrinkWrap: true,
                       itemBuilder: ((context, index) {
+                        Reference teste = storage.ref(snapshot.data![index]!.imagem);
+                        final img = teste.getDownloadURL();
                         return Card(
                           child: ListTile(
-                            leading: SizedBox(
-                                width: 80,
-                                height: 80,
-                                child: Image.network("https://firebasestorage.googleapis.com/v0/b/infoquario.appspot.com/o/images%2Fimg-2022-04-10%2012%3A00%3A24.590132.png?alt=media&token=ac0a97fd-168f-4797-8f8c-3edb40e9a3f9"),
+
+                            leading: FutureBuilder(
+                                future: img,
+                                builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
+
+                                  return SizedBox(
+                                    height: 80,
+                                    width: 80,
+                                    child: Image.network(snapshot.data ?? "https://firebasestorage.googleapis.com/v0/b/infoquario.appspot.com/o/images%2Fimg-2022-04-10%2012%3A00%3A24.590132.png?alt=media&token=ac0a97fd-168f-4797-8f8c-3edb40e9a3f9"),
+                                  );
+                                }
                             ),
                             title: Text(snapshot.data![index]!.nomePopular),
                             subtitle: Text(snapshot.data![index]!.nomeCientifico),
