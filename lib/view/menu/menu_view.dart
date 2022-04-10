@@ -5,7 +5,7 @@ import 'package:infoquario/services/auth_service.dart';
 import 'package:infoquario/view/about/about_view.dart';
 import 'package:infoquario/view/aquarium/aquarium_view.dart';
 import 'package:infoquario/view/crustacean/crustacean_view.dart';
-import 'package:infoquario/view/saltwater_fish/saltwater_fish_view.dart';
+import 'package:infoquario/view/peixe_agua_salgada/saltwater_fish_view.dart';
 import 'package:infoquario/view/turtle/turtle_view.dart';
 
 
