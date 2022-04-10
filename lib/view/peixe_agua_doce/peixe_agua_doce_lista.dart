@@ -38,7 +38,7 @@ class _PeixeAguaDoceListaViewState extends State<PeixeAguaDoceListaView> {
                         return Card(
                           child: ListTile(
                             title: Text(snapshot.data![index]!.nomePopular),
-                            subtitle: Text(snapshot.data![index]!.nomePopular),
+                            subtitle: Text(snapshot.data![index]!.nomeCientifico),
                             onTap: () {
                               Navigator.push(
                                 context,

@@ -30,6 +30,8 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
   final populacaoMinima = TextEditingController();
   final volumeMinimo = TextEditingController();
   final fachadaMinima = TextEditingController();
+  final phAgua = TextEditingController();
+  final temperatura = TextEditingController();
 
   String imagem = "";
   String carregar = "Carregue uma imagem";
@@ -189,6 +191,20 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
             SizedBox(
               height: 20,
             ),
+            FormFieldPadrao(
+              controle: phAgua,
+              title:"pH da água",
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            FormFieldPadrao(
+              controle: temperatura,
+              title:"Temperatura da água",
+            ),
+            SizedBox(
+              height: 20,
+            ),
             Container(
               child: DropdownButtonFormField<String>(
                 value: dificuldade,
@@ -258,6 +274,8 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
                         tipoAquario,
                         volumeMinimo.text,
                         fachadaMinima.text,
+                        phAgua.text,
+                        temperatura.text,
                         dificuldade,
                         imagem);
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Peixe adicionado com sucesso")));

@@ -7,7 +7,7 @@ class PeixeAguaDoceService{
   PeixeAguaDoceService(){
   }
 
-  void registerFreshwater(nomePopular,nomeCientifico,classe,ordem,familia,genero,origem,tipo,tamanho,expectativa,populacaoMinima,tipoAquario,volumeMinimo,fachadaMinima,dificuldade,imagem){
+  void registerFreshwater(nomePopular,nomeCientifico,classe,ordem,familia,genero,origem,tipo,tamanho,expectativa,populacaoMinima,tipoAquario,volumeMinimo,fachadaMinima,phAgua,temperatura,dificuldade,imagem){
     freshwater.add({
       'nomePopular': nomePopular,
       'nomeCientifico': nomeCientifico,
@@ -23,6 +23,8 @@ class PeixeAguaDoceService{
       'tipoAquario': tipoAquario,
       'volumeMinimo': volumeMinimo,
       'fachadaMinima': fachadaMinima,
+      'phAgua': phAgua,
+      'temperatura': temperatura,
       'dificuldade': dificuldade,
       'imagem': imagem,
     });
@@ -47,6 +49,8 @@ class PeixeAguaDoceService{
           d["tipoAquario"],
           d["volumeMinimo"],
           d["fachadaMinima"],
+          d["phAgua"],
+          d["temperatura"],
           d["dificuldade"],
           d["imagem"]
       );
