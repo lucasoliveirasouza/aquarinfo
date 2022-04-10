@@ -37,6 +37,11 @@ class _PeixeAguaDoceListaViewState extends State<PeixeAguaDoceListaView> {
                       itemBuilder: ((context, index) {
                         return Card(
                           child: ListTile(
+                            leading: SizedBox(
+                                width: 80,
+                                height: 80,
+                                child: Image.network("https://firebasestorage.googleapis.com/v0/b/infoquario.appspot.com/o/images%2Fimg-2022-04-10%2012%3A00%3A24.590132.png?alt=media&token=ac0a97fd-168f-4797-8f8c-3edb40e9a3f9"),
+                            ),
                             title: Text(snapshot.data![index]!.nomePopular),
                             subtitle: Text(snapshot.data![index]!.nomeCientifico),
                             onTap: () {

@@ -24,6 +24,7 @@ class PeixeAguaDoce{
     this.nomePopular = nomePopular;
     this.nomeCientifico = nomeCientifico;
     this.classe = classe;
+    this.ordem = ordem;
     this.familia = familia;
     this.genero = genero;
     this.tipo = tipo;
