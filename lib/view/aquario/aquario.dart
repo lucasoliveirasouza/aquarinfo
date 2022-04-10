@@ -40,7 +40,7 @@ class _AquarioViewState extends State<AquarioView> {
               ),
               CardItem(
                 image: "aquarios/alga.png",
-                title: "Água salgada",
+                title: "Plantas",
                 color: Colors.green.shade100,
                 onTap: (){
                   Navigator.push(
