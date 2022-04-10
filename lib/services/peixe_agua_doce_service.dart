@@ -34,7 +34,7 @@ class PeixeAguaDoceService{
     List<PeixeAguaDoce> posts = [];
     QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('peixeaguadoce').get();
     snapshot.docs.forEach((d) {
-      PeixeAguaDoce peixe = new PeixeAguaDoce(
+      PeixeAguaDoce peixe = PeixeAguaDoce(
           d["nomePopular"],
           d["nomeCientifico"],
           d["classe"],
