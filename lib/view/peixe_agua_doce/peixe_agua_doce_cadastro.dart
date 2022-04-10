@@ -143,7 +143,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
             ),
             FormFieldPadrao(
               controle: populacaoMinima,
-              title:"População Mínima",
+              title:"População mínima",
             ),
             SizedBox(
               height: 20,
@@ -177,14 +177,14 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
             ),
             FormFieldPadrao(
               controle: volumeMinimo,
-              title:"Volume Mínimo",
+              title:"Volume mínimo",
             ),
             SizedBox(
               height: 20,
             ),
             FormFieldPadrao(
               controle: fachadaMinima,
-              title:"Fachada Mínima",
+              title:"Fachada mínima",
             ),
             SizedBox(
               height: 20,
