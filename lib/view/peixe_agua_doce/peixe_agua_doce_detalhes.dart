@@ -38,15 +38,13 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
                   return SizedBox(
                       height: 250,
                       width: 250,
-                      child: Image.network(snapshot.data ?? "https://firebasestorage.googleapis.com/v0/b/infoquario.appspot.com/o/images%2Fimg-2022-04-10%2012%3A00%3A24.590132.png?alt=media&token=ac0a97fd-168f-4797-8f8c-3edb40e9a3f9"),
+                      child: Image.network(snapshot.data ?? ""),
                   );
                 }
             ),
-
             SizedBox(
               height: 5,
             ),
-
             Text(
               "Nome popular: " + widget.peixe.nomePopular,
               style: TextStyle(
