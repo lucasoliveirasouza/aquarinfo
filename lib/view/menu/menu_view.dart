@@ -1,9 +1,8 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/services/auth_service.dart';
 import 'package:infoquario/view/about/about_view.dart';
-import 'package:infoquario/view/aquarium/aquarium_view.dart';
+import 'package:infoquario/view/aquario/aquario.dart';
 import 'package:infoquario/view/crustaceo/crustaceo.dart';
 import 'package:infoquario/view/peixe_agua_salgada/peixe_agua_salgada.dart';
 import 'package:infoquario/view/tartaruga/tartaruga.dart';
@@ -118,7 +117,7 @@ class _MenuViewState extends State<MenuView> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AquariumView(),
+                  builder: (context) => AquarioView(),
                 ),
               )
             },
