@@ -73,11 +73,12 @@ class _MenuViewState extends State<MenuView> {
             },
           ),
           ListTile(
-            leading: CircleAvatar(
-              radius: 13,
-              backgroundImage: AssetImage('assets/crustacean.png'),
-              backgroundColor: Colors.transparent,
+            leading: SizedBox(
+              width: 25,
+              height: 25,
+              child: Image.asset('assets/crustacean.png'),
             ),
+
             title: Text('Crustáceos'),
             onTap: () => {
               Navigator.push(
@@ -89,10 +90,10 @@ class _MenuViewState extends State<MenuView> {
             },
           ),
           ListTile(
-            leading: CircleAvatar(
-              radius: 13,
-              backgroundImage: AssetImage('assets/turtle.png'),
-              backgroundColor: Colors.transparent,
+            leading: SizedBox(
+              width: 25,
+              height: 25,
+              child: Image.asset('assets/turtle.png'),
             ),
             title: Text('Tartarugas'),
             onTap: () => {
@@ -106,10 +107,10 @@ class _MenuViewState extends State<MenuView> {
           ),
 
           ListTile(
-            leading: CircleAvatar(
-              radius: 13,
-              backgroundImage: AssetImage('assets/aquarium.png'),
-              backgroundColor: Colors.transparent,
+            leading: SizedBox(
+              width: 25,
+              height: 25,
+              child: Image.asset('assets/aquarium.png'),
             ),
             title: Text('Aquários'),
             onTap: () => {
@@ -125,10 +126,10 @@ class _MenuViewState extends State<MenuView> {
 
 
           ListTile(
-            leading: CircleAvatar(
-              radius: 13,
-              backgroundImage: AssetImage('assets/about.png'),
-              backgroundColor: Colors.transparent,
+            leading: SizedBox(
+              width: 25,
+              height: 25,
+              child: Image.asset('assets/about.png'),
             ),
             title: Text('Sobre'),
             onTap: () => {
@@ -142,11 +143,12 @@ class _MenuViewState extends State<MenuView> {
           ),
 
           ListTile(
-            leading: CircleAvatar(
-              radius: 13,
-              backgroundImage: AssetImage('assets/logout.png'),
-              backgroundColor: Colors.transparent,
+            leading: SizedBox(
+              width: 25,
+              height: 25,
+              child: Image.asset('assets/logout.png'),
             ),
+
             title: Text('Sair'),
             onTap: () => {
               AuthService().logout()
