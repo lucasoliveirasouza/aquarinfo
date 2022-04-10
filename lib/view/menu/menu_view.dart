@@ -46,10 +46,10 @@ class _MenuViewState extends State<MenuView> {
               )
           ),
           ListTile(
-            leading: CircleAvatar(
-              radius: 13,
-              backgroundImage: AssetImage('assets/fish.png'),
-              backgroundColor: Colors.transparent,
+            leading: SizedBox(
+              width: 25,
+              height: 25,
+              child: Image.asset('assets/fish.png'),
             ),
             title: Text('Peixes de água doce'),
             onTap: () => {
@@ -58,12 +58,10 @@ class _MenuViewState extends State<MenuView> {
           ),
           ListTile(
             leading: SizedBox(
-              width: 22,
-              height: 22,
+              width: 25,
+              height: 25,
               child: Image.asset('assets/shark.png'),
             ),
-
-
             title: Text('Peixes de água salgada'),
             onTap: () => {
               Navigator.push(
