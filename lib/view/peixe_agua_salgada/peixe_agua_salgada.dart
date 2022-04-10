@@ -1,4 +1,5 @@
  import 'package:flutter/material.dart';
+import 'package:infoquario/view/peixe_agua_salgada/peixe_agua_salgada_lista.dart';
 import 'package:infoquario/widget/card_item.dart';
 
 class PeixeAguaSalgadaView extends StatefulWidget {
@@ -28,12 +29,12 @@ class PeixeAguaSalgadaView extends StatefulWidget {
                  title: "Todos",
                  color: Colors.green.shade100,
                  onTap: (){
-                   /*Navigator.push(
+                   Navigator.push(
                      context,
                      MaterialPageRoute(
-                       builder: (context) => PeixeAguaDoceListaView(tipo: "Todos"),
+                       builder: (context) => PeixeAguaSalgadaListaView(tipo: "Todos"),
                      ),
-                   );*/
+                   );
                  },
                ),
                CardItem(
@@ -41,12 +42,12 @@ class PeixeAguaSalgadaView extends StatefulWidget {
                  title: "Carnívoros",
                  color: Colors.green.shade100,
                  onTap: (){
-                   /*Navigator.push(
+                   Navigator.push(
                      context,
                      MaterialPageRoute(
-                       builder: (context) => PeixeAguaDoceListaView(tipo: "Carnívoros"),
+                       builder: (context) => PeixeAguaSalgadaListaView(tipo: "Carnívoros"),
                      ),
-                   );*/
+                   );
                  },
                ),
                CardItem(
@@ -54,12 +55,12 @@ class PeixeAguaSalgadaView extends StatefulWidget {
                  title: "Herbívoros",
                  color: Colors.green.shade100,
                  onTap: (){
-                   /*Navigator.push(
+                   Navigator.push(
                      context,
                      MaterialPageRoute(
-                       builder: (context) => PeixeAguaDoceListaView(tipo: "Herbívoros"),
+                       builder: (context) => PeixeAguaSalgadaListaView(tipo: "Herbívoros"),
                      ),
-                   );*/
+                   );
                  },
                ),
                CardItem(
@@ -67,12 +68,12 @@ class PeixeAguaSalgadaView extends StatefulWidget {
                  title: "Onívoros",
                  color: Colors.green.shade100,
                  onTap: (){
-                   /*Navigator.push(
+                   Navigator.push(
                      context,
                      MaterialPageRoute(
-                       builder: (context) => PeixeAguaDoceListaView(tipo: "Onívoros"),
+                       builder: (context) => PeixeAguaSalgadaListaView(tipo: "Onívoros"),
                      ),
-                   );*/
+                   );
                  },
                ),
 
@@ -81,12 +82,12 @@ class PeixeAguaSalgadaView extends StatefulWidget {
                  title: "Planctógafos",
                  color: Colors.green.shade100,
                  onTap: (){
-                   /*Navigator.push(
+                   Navigator.push(
                      context,
                      MaterialPageRoute(
-                       builder: (context) => PeixeAguaDoceListaView(tipo: "Planctógafos"),
+                       builder: (context) => PeixeAguaSalgadaListaView(tipo: "Planctógafos"),
                      ),
-                   );*/
+                   );
                  },
                ),
 
@@ -95,12 +96,12 @@ class PeixeAguaSalgadaView extends StatefulWidget {
                  title: "Detritívoros",
                  color: Colors.green.shade100,
                  onTap: (){
-                   /*Navigator.push(
+                   Navigator.push(
                      context,
                      MaterialPageRoute(
-                       builder: (context) => PeixeAguaDoceListaView(tipo: "Detritívoros"),
+                       builder: (context) => PeixeAguaSalgadaListaView(tipo: "Detritívoros"),
                      ),
-                   );*/
+                   );
                  },
                ),
 
