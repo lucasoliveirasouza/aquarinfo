@@ -27,7 +27,7 @@ class _CrustaceoTipoViewState extends State<CrustaceoTipoView> {
             crossAxisCount: 2,
             children: <Widget>[
               CardItem(
-                image: "agua_salgada/cardume.png",
+                image: "crustaceos/caranguejo.png",
                 title: "Caranguejo",
                 color: Colors.green.shade100,
                 onTap: (){
@@ -40,7 +40,7 @@ class _CrustaceoTipoViewState extends State<CrustaceoTipoView> {
                 },
               ),
               CardItem(
-                image: "agua_salgada/carnivoros.png",
+                image: "crustaceos/lagosta.png",
                 title: "Lagosta",
                 color: Colors.green.shade100,
                 onTap: (){
@@ -53,7 +53,7 @@ class _CrustaceoTipoViewState extends State<CrustaceoTipoView> {
                 },
               ),
               CardItem(
-                image: "agua_salgada/carnivoros.png",
+                image: "crustaceos/camarao.png",
                 title: "Camarão",
                 color: Colors.green.shade100,
                 onTap: (){

@@ -26,7 +26,7 @@ class _CrustaceoViewState extends State<CrustaceoView> {
             crossAxisCount: 2,
             children: <Widget>[
               CardItem(
-                image: "agua_salgada/cardume.png",
+                image: "crustaceos/rio.png",
                 title: "Água doce",
                 color: Colors.green.shade100,
                 onTap: (){
@@ -39,7 +39,7 @@ class _CrustaceoViewState extends State<CrustaceoView> {
                 },
               ),
               CardItem(
-                image: "agua_salgada/carnivoros.png",
+                image: "crustaceos/oceano.png",
                 title: "Água salgada",
                 color: Colors.green.shade100,
                 onTap: (){

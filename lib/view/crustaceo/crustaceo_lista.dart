@@ -14,7 +14,7 @@ class _CrustaceoListaViewState extends State<CrustaceoListaView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.tipo + " de " + widget.tipoAgua),
+          title: Text(widget.tipo + " de água " + widget.tipoAgua),
         ),
     );
   }
