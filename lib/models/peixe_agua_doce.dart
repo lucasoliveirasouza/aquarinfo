@@ -1,6 +1,7 @@
 
 
 class PeixeAguaDoce{
+  // nomePopular,nomeCientifico,nomePopular,classe,ordem,familia,genero,origem,tamanho,expectativa,populacaoMinima,tipoAquario,volumeMinimo,fachadaMinima,dificuldade;
   late String nomeCientifico;
   late String tipo;
   late String nomePopular;
