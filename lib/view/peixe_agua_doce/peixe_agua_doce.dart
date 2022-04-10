@@ -27,7 +27,7 @@ class _PeixeAguaDoceViewState extends State<PeixeAguaDoceView> {
           crossAxisCount: 2,
           children: <Widget>[
             CardItem(
-              image: "shoal.png",
+              image: "agua_doce/shoal.png",
               title: "Todos",
               color: Colors.green.shade100,
               onTap: (){
@@ -40,7 +40,7 @@ class _PeixeAguaDoceViewState extends State<PeixeAguaDoceView> {
               },
             ),
             CardItem(
-              image: "piranha.png",
+              image: "agua_doce/piranha.png",
               title: "Carnívoros",
               color: Colors.green.shade100,
               onTap: (){
@@ -53,7 +53,7 @@ class _PeixeAguaDoceViewState extends State<PeixeAguaDoceView> {
               },
             ),
             CardItem(
-              image: "guppy.png",
+              image: "agua_doce/guppy.png",
               title: "Herbívoros",
               color: Colors.green.shade100,
               onTap: (){
@@ -66,7 +66,7 @@ class _PeixeAguaDoceViewState extends State<PeixeAguaDoceView> {
               },
             ),
             CardItem(
-              image: "tetraneon.png",
+              image: "agua_doce/tetraneon.png",
               title: "Onívoros",
               color: Colors.green.shade100,
               onTap: (){
@@ -80,7 +80,7 @@ class _PeixeAguaDoceViewState extends State<PeixeAguaDoceView> {
             ),
 
             CardItem(
-              image: "carpa.png",
+              image: "agua_doce/carpa.png",
               title: "Planctógafos",
               color: Colors.green.shade100,
               onTap: (){
@@ -94,7 +94,7 @@ class _PeixeAguaDoceViewState extends State<PeixeAguaDoceView> {
             ),
 
             CardItem(
-              image: "substituir.png",
+              image: "agua_doce/carpadetritos.png",
               title: "Detritívoros",
               color: Colors.green.shade100,
               onTap: (){
