@@ -182,27 +182,14 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
               "Dificuldade de criação: " + widget.peixe.dificuldade,
               style: TextStyle(
                 fontSize: 17,
+                color: Colors.green,
               ),
             ),
             SizedBox(
               height: 5,
             ),
 
-            /*ListTile(
-              title: Text("Nome científico: " + widget.peixe.nomeCientifico),
-            ),
-            ListTile(
-              title: Text("Nome popular: " + widget.peixe.nomePopular),
-            ),
-            ListTile(
-              title: Text("Tipo: " + widget.peixe.tipo),
-            ),
-            ListTile(
-              title: Text("Expectativa de vida: " + widget.peixe.expectativa),
-            ),
-            ListTile(
-              title: Text("Imagem: " + widget.peixe.imagem),
-            ),*/
+
 
           ],
         ),
