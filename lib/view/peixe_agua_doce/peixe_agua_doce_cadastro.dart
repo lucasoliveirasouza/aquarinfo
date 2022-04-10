@@ -105,7 +105,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
                 value: tipo,
                 icon: Icon(null),
                 elevation: 15,
-                decoration: InputDecoration(labelText: 'Responsável'),
+                decoration: InputDecoration(labelText: 'Tipo de alimentação'),
                 onChanged: (String? newValue) {
                   setState(() {
                     tipo = newValue!;
@@ -240,7 +240,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
               child: ElevatedButton(
                 child: Text("Cadastrar"),
                 onPressed: () {
-                  if(/*imagem == "" ||*/ tipo == 'Selecione o tipo...' || dificuldade == 'Selecione a dificuldade...' || tipoAquario=='Selecione o tipo...' ){
+                  if(imagem == "" || tipo == 'Selecione o tipo...' || dificuldade == 'Selecione a dificuldade...' || tipoAquario=='Selecione o tipo...' ){
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Verifique se uma imagem foi anexada ou todos os campos foram preenchidos")));
                   }else{
                     PeixeAguaDoceService().registerFreshwater(
