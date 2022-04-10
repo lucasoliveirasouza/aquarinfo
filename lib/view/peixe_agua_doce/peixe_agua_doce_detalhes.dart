@@ -22,7 +22,6 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
   Widget build(BuildContext context) {
     Reference teste = storage.ref(widget.peixe.imagem);
 
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.peixe.nomePopular),
@@ -31,6 +30,7 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
         padding: EdgeInsets.all(20),
         child: ListView(
           children: [
+
             SizedBox(
               height: 250,
               width: 250,
@@ -39,6 +39,7 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
             SizedBox(
               height: 5,
             ),
+
             Text(
               "Nome popular: " + widget.peixe.nomePopular,
               style: TextStyle(
@@ -182,15 +183,11 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
               "Dificuldade de criação: " + widget.peixe.dificuldade,
               style: TextStyle(
                 fontSize: 17,
-                color: Colors.green,
               ),
             ),
             SizedBox(
               height: 5,
             ),
-
-
-
           ],
         ),
       ),
