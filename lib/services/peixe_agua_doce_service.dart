@@ -32,11 +32,30 @@ class PeixeAguaDoceService{
     List<PeixeAguaDoce> posts = [];
     QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('peixeaguadoce').get();
     snapshot.docs.forEach((d) {
-      PeixeAguaDoce peixe = new PeixeAguaDoce(d["nomeCientifico"], d["tipo"], d["nomePopular"], d["expectativa"],d["imagem"]);
+      PeixeAguaDoce peixe = new PeixeAguaDoce(
+          d["nomePopular"],
+          d["nomeCientifico"],
+          d["classe"],
+          d["ordem"],
+          d["familia"],
+          d["genero"],
+          d["origem"],
+          d["tipo"],
+          d["tamanho"],
+          d["expectativa"],
+          d["populacaoMinima"],
+          d["tipoAquario"],
+          d["volumeMinimo"],
+          d["fachadaMinima"],
+          d["dificuldade"],
+          d["imagem"]
+      );
       if(d["tipo"] == tipo){
         posts.add(peixe);
+
       }else if(tipo == "Todos"){
         posts.add(peixe);
+
       }
     });
     return posts;
