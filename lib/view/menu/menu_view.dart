@@ -6,7 +6,8 @@ import 'package:infoquario/view/about/about_view.dart';
 import 'package:infoquario/view/aquarium/aquarium_view.dart';
 import 'package:infoquario/view/crustaceo/crustaceo.dart';
 import 'package:infoquario/view/peixe_agua_salgada/peixe_agua_salgada.dart';
-import 'package:infoquario/view/turtle/turtle_view.dart';
+import 'package:infoquario/view/tartaruga/tartaruga.dart';
+
 
 
 class MenuView extends StatefulWidget {
@@ -100,7 +101,7 @@ class _MenuViewState extends State<MenuView> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => TurtleView(),
+                  builder: (context) => TartarugaView(),
                 ),
               )
             },
