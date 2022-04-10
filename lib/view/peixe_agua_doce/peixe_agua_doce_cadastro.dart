@@ -59,7 +59,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
             ),
             FormFieldPadrao(
               controle: nomeCientifico,
-              title:"Nome científico",
+              title:"Nome cientifico",
             ),
             SizedBox(
               height: 20,
