@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:infoquario/view/tartaruga/tartaruga_lista.dart';
 import 'package:infoquario/widget/card_item.dart';
 
 class TartarugaView extends StatefulWidget {
@@ -32,7 +33,7 @@ class _TartarugaViewState extends State<TartarugaView> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => TartarugaLista(tipoAgua: "doce"),
+                      builder: (context) => TartarugaListaView(tipoAgua: "doce"),
                     ),
                   );
                 },
@@ -42,12 +43,12 @@ class _TartarugaViewState extends State<TartarugaView> {
                 title: "Água salgada",
                 color: Colors.green.shade100,
                 onTap: (){
-                  /*Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CrustaceoTipoView(tipoAgua: "salgada"),
+                      builder: (context) => TartarugaListaView(tipoAgua: "salgada"),
                     ),
-                  );*/
+                  );
                 },
               ),
 
