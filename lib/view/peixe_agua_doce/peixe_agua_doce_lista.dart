@@ -68,9 +68,7 @@ class _PeixeAguaDoceListaViewState extends State<PeixeAguaDoceListaView> {
 
                         );
                       }
-
                       )
-
                   );
                 }
             )
