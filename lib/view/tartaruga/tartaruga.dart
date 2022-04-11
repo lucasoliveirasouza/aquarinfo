@@ -33,7 +33,7 @@ class _TartarugaViewState extends State<TartarugaView> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => TartarugaListaView(),
+                      builder: (context) => TartarugaListaView(tipoAgua: "doce"),
                     ),
                   );
                 },
@@ -46,7 +46,7 @@ class _TartarugaViewState extends State<TartarugaView> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => TartarugaListaView(),
+                      builder: (context) => TartarugaListaView(tipoAgua: "salgada"),
                     ),
                   );
                 },
