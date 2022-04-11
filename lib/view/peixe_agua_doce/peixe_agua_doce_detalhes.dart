@@ -53,7 +53,7 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
               child: Text(
                 widget.peixe.nomePopular,
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 19,
                   fontWeight: FontWeight.bold,
                   color: Colors.green,
                 ),
