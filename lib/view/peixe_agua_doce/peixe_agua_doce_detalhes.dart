@@ -32,9 +32,13 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
                 future: img,
                 builder:
                     (BuildContext context, AsyncSnapshot<String?> snapshot) {
-                  return SizedBox(
-                    child: Image.network(snapshot.data ?? ""),
-                  );
+                  if (snapshot.hasData) {
+                    return SizedBox(
+                      child: Image.network(snapshot.data ?? ""),
+                    );
+                  } else {
+                    return CircularProgressIndicator();
+                  }
                 }),
             SizedBox(
               height: 5,
