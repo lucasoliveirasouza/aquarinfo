@@ -27,7 +27,6 @@ class PeixeAguaSalgadaService {
       dificuldade,
       imagem) {
     aguasalgada.add({
-      'id': aguasalgada.id,
       'nomePopular': nomePopular,
       'nomeCientifico': nomeCientifico,
       'classe': classe,
@@ -55,7 +54,6 @@ class PeixeAguaSalgadaService {
         await FirebaseFirestore.instance.collection('peixeaguasalgada').get();
     snapshot.docs.forEach((d) {
       PeixeAguaSalgada peixe = PeixeAguaSalgada(
-          d["id"],
           d["nomePopular"],
           d["nomeCientifico"],
           d["classe"],

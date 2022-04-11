@@ -1,6 +1,4 @@
-
-
-class PeixeAguaDoce{
+class PeixeAguaDoce {
   late String nomePopular;
   late String nomeCientifico;
   late String classe;
@@ -20,7 +18,25 @@ class PeixeAguaDoce{
   late String dificuldade;
   late String imagem;
 
-  PeixeAguaDoce(String nomePopular, String nomeCientifico, String classe, String ordem, String familia, String genero, String origem, String tipo, String tamanho, String expectativa, String populacaoMinima, String tipoAquario, String volumeMinimo, String fachadaMinima, String phAgua, String temperatura, String dificuldade, String imagem){
+  PeixeAguaDoce(
+      String nomePopular,
+      String nomeCientifico,
+      String classe,
+      String ordem,
+      String familia,
+      String genero,
+      String origem,
+      String tipo,
+      String tamanho,
+      String expectativa,
+      String populacaoMinima,
+      String tipoAquario,
+      String volumeMinimo,
+      String fachadaMinima,
+      String phAgua,
+      String temperatura,
+      String dificuldade,
+      String imagem) {
     this.nomePopular = nomePopular;
     this.nomeCientifico = nomeCientifico;
     this.classe = classe;

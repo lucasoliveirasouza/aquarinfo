@@ -1,5 +1,4 @@
 class PeixeAguaSalgada {
-  late String id;
   late String nomePopular;
   late String nomeCientifico;
   late String classe;
@@ -20,7 +19,6 @@ class PeixeAguaSalgada {
   late String imagem;
 
   PeixeAguaSalgada(
-      String id,
       String nomePopular,
       String nomeCientifico,
       String classe,
@@ -39,7 +37,6 @@ class PeixeAguaSalgada {
       String temperatura,
       String dificuldade,
       String imagem) {
-    this.id = id;
     this.nomePopular = nomePopular;
     this.nomeCientifico = nomeCientifico;
     this.classe = classe;
