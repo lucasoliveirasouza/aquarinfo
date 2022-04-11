@@ -1,4 +1,4 @@
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/services/auth_service.dart';
 import 'package:infoquario/view/about/about_view.dart';
@@ -6,8 +6,6 @@ import 'package:infoquario/view/aquario/aquario.dart';
 import 'package:infoquario/view/crustaceo/crustaceo.dart';
 import 'package:infoquario/view/peixe_agua_salgada/peixe_agua_salgada.dart';
 import 'package:infoquario/view/tartaruga/tartaruga.dart';
-
-
 
 class MenuView extends StatefulWidget {
   const MenuView({Key? key}) : super(key: key);
@@ -17,34 +15,30 @@ class MenuView extends StatefulWidget {
 }
 
 class _MenuViewState extends State<MenuView> {
+  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Drawer(
-
       child: ListView(
-
         children: [
           Container(
-              height: 110,
+              height: 100,
               child: DrawerHeader(
                 child: ListTile(
-
                   title: Text(
-                      "Lucas Oliveira",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold
-                      ),
+                    auth.currentUser!.email.toString(),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   leading: CircleAvatar(
                     radius: 21,
                     backgroundImage: AssetImage('assets/fishlogin.png'),
                     backgroundColor: Colors.transparent,
                   ),
-
                 ),
-              )
-          ),
+              )),
           ListTile(
             leading: SizedBox(
               width: 25,
@@ -52,9 +46,7 @@ class _MenuViewState extends State<MenuView> {
               child: Image.asset('assets/fish.png'),
             ),
             title: Text('Peixes de água doce'),
-            onTap: () => {
-              Navigator.of(context).pop()
-            },
+            onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
             leading: SizedBox(
@@ -78,7 +70,6 @@ class _MenuViewState extends State<MenuView> {
               height: 25,
               child: Image.asset('assets/crustacean.png'),
             ),
-
             title: Text('Crustáceos'),
             onTap: () => {
               Navigator.push(
@@ -105,7 +96,6 @@ class _MenuViewState extends State<MenuView> {
               )
             },
           ),
-
           ListTile(
             leading: SizedBox(
               width: 25,
@@ -122,9 +112,6 @@ class _MenuViewState extends State<MenuView> {
               )
             },
           ),
-
-
-
           ListTile(
             leading: SizedBox(
               width: 25,
@@ -141,26 +128,17 @@ class _MenuViewState extends State<MenuView> {
               )
             },
           ),
-
           ListTile(
             leading: SizedBox(
               width: 25,
               height: 25,
               child: Image.asset('assets/logout.png'),
             ),
-
             title: Text('Sair'),
-            onTap: () => {
-              AuthService().logout()
-            },
+            onTap: () => {AuthService().logout()},
           ),
-
-
         ],
-
       ),
-
-
     );
   }
 }
