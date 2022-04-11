@@ -21,7 +21,6 @@ class LinhaTabela extends StatelessWidget {
                 title,
                 textAlign: TextAlign.right,
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
                   color: Colors.white,
                   fontSize: 15,
                 ),
@@ -34,9 +33,9 @@ class LinhaTabela extends StatelessWidget {
                 valor,
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green),
+                  fontSize: 15,
+                  color: Colors.green,
+                ),
               ),
             )
           ]),

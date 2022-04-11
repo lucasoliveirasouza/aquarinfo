@@ -40,8 +40,6 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
                     );
                   } else {
                     return SizedBox(
-                      width: 280,
-                      height: 280,
                       child: Container(
                         color: Colors.green.shade50,
                       ),
@@ -49,13 +47,20 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
                   }
                 }),
             SizedBox(
-              height: 15,
+              height: 10,
             ),
             Center(
-              child: Text(widget.peixe.nomePopular),
+              child: Text(
+                widget.peixe.nomePopular,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green,
+                ),
+              ),
             ),
             SizedBox(
-              height: 5,
+              height: 10,
             ),
             LinhaTabela(
               valor: widget.peixe.nomeCientifico,
@@ -107,7 +112,7 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
               height: 3,
             ),
             LinhaTabela(
-              valor: widget.peixe.tamanho,
+              valor: widget.peixe.expectativa,
               title: "Expectativa de vida:",
             ),
             SizedBox(
