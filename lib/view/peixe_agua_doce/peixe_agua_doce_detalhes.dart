@@ -51,6 +51,12 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
             SizedBox(
               height: 15,
             ),
+            Center(
+              child: Text(widget.peixe.nomePopular),
+            ),
+            SizedBox(
+              height: 5,
+            ),
             LinhaTabela(
               valor: widget.peixe.nomeCientifico,
               title: "Nome científico:",
