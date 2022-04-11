@@ -1,7 +1,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/models/peixe_agua_doce.dart';
-import 'package:infoquario/services/peixe_agua_doce_service.dart';
+
 import 'package:infoquario/widget/linha_tabela.dart';
 
 class PeixeAguaDoceDetalhesView extends StatefulWidget {
