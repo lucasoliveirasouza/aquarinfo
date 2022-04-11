@@ -1,5 +1,3 @@
-
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/models/peixe_agua_doce.dart';
@@ -7,17 +5,15 @@ import 'package:infoquario/services/peixe_agua_doce_service.dart';
 
 class PeixeAguaDoceDetalhesView extends StatefulWidget {
   PeixeAguaDoce peixe;
-  PeixeAguaDoceDetalhesView({Key? key,required this.peixe}) : super(key: key);
+  PeixeAguaDoceDetalhesView({Key? key, required this.peixe}) : super(key: key);
 
   @override
-  _PeixeAguaDoceDetalhesViewState createState() => _PeixeAguaDoceDetalhesViewState();
+  _PeixeAguaDoceDetalhesViewState createState() =>
+      _PeixeAguaDoceDetalhesViewState();
 }
 
 class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
   final FirebaseStorage storage = FirebaseStorage.instance;
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +30,12 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
           children: [
             FutureBuilder(
                 future: img,
-                builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
+                builder:
+                    (BuildContext context, AsyncSnapshot<String?> snapshot) {
                   return SizedBox(
-                      height: 250,
-                      width: 250,
-                      child: Image.network(snapshot.data ?? ""),
+                    child: Image.network(snapshot.data ?? ""),
                   );
-                }
-            ),
+                }),
             SizedBox(
               height: 5,
             ),
@@ -55,10 +49,10 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
               height: 5,
             ),
             Text(
-                "Nome científico: " + widget.peixe.nomeCientifico,
-                style: TextStyle(
-                  fontSize: 17,
-                ),
+              "Nome científico: " + widget.peixe.nomeCientifico,
+              style: TextStyle(
+                fontSize: 17,
+              ),
             ),
             SizedBox(
               height: 5,
@@ -100,10 +94,10 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
               height: 5,
             ),
             Text(
-                "Tipo: " + widget.peixe.tipo,
-                style: TextStyle(
-                  fontSize: 17,
-                ),
+              "Tipo: " + widget.peixe.tipo,
+              style: TextStyle(
+                fontSize: 17,
+              ),
             ),
             SizedBox(
               height: 5,
@@ -118,10 +112,10 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
               height: 5,
             ),
             Text(
-                "Expectativa de vida: " + widget.peixe.expectativa,
-                style: TextStyle(
-                  fontSize: 17,
-                ),
+              "Expectativa de vida: " + widget.peixe.expectativa,
+              style: TextStyle(
+                fontSize: 17,
+              ),
             ),
             SizedBox(
               height: 5,
@@ -144,7 +138,6 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
             SizedBox(
               height: 5,
             ),
-
             Text(
               "Volume mínimo: " + widget.peixe.volumeMinimo,
               style: TextStyle(
@@ -154,7 +147,6 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
             SizedBox(
               height: 5,
             ),
-
             Text(
               "Fachada mínima: " + widget.peixe.fachadaMinima,
               style: TextStyle(
@@ -164,7 +156,6 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
             SizedBox(
               height: 5,
             ),
-
             Text(
               "pH da água: " + widget.peixe.phAgua,
               style: TextStyle(
@@ -198,4 +189,3 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
     );
   }
 }
-
