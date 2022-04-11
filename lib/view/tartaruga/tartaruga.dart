@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:infoquario/view/tartaruga/tartaruga_cadastro.dart';
 import 'package:infoquario/view/tartaruga/tartaruga_lista.dart';
 import 'package:infoquario/widget/card_item.dart';
 
@@ -54,6 +55,20 @@ class _TartarugaViewState extends State<TartarugaView> {
 
             ],
           )
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.add,
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => TartarugaCadastroView(),
+            ),
+          );
+        },
       ),
     );
   }
