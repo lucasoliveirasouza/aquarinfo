@@ -25,6 +25,7 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
         title: Text(widget.peixe.nomePopular),
       ),
       body: Container(
+        color: Colors.green.shade50,
         padding: EdgeInsets.all(20),
         child: ListView(
           children: [
@@ -37,9 +38,42 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
                       child: Image.network(snapshot.data ?? ""),
                     );
                   } else {
-                    return CircularProgressIndicator();
+                    return SizedBox(
+                      width: 280,
+                      height: 280,
+                      child: Container(
+                        color: Colors.white,
+                      ),
+                    );
                   }
                 }),
+            Table(
+              children: [
+                TableRow(children: [
+                  Container(
+                    padding: EdgeInsets.only(right: 10),
+                    height: 23,
+                    child: Text(
+                      "Oi:",
+                      textAlign: TextAlign.right,
+                      style: TextStyle(
+                        fontSize: 17,
+                      ),
+                    ),
+                    color: Colors.green,
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 10),
+                    height: 23,
+                    child: Text(
+                      "Lucas",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(fontSize: 17, color: Colors.green),
+                    ),
+                  )
+                ]),
+              ],
+            ),
             SizedBox(
               height: 5,
             ),

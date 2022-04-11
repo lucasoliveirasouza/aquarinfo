@@ -53,7 +53,13 @@ class _PeixeAguaDoceListaViewState extends State<PeixeAguaDoceListaView> {
                                       child: Image.network(snapshot.data ?? ""),
                                     );
                                   } else {
-                                    return CircularProgressIndicator();
+                                    return SizedBox(
+                                      height: 80,
+                                      width: 80,
+                                      child: Container(
+                                        color: Colors.white,
+                                      ),
+                                    );
                                   }
                                 }),
                             title: Text(snapshot.data![index]!.nomePopular),
