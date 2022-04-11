@@ -1,19 +1,18 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:infoquario/models/peixe_agua_doce.dart';
-
+import 'package:infoquario/models/peixe_agua_salgada.dart';
 import 'package:infoquario/widget/linha_tabela.dart';
 
-class PeixeAguaDoceDetalhesView extends StatefulWidget {
-  PeixeAguaDoce peixe;
-  PeixeAguaDoceDetalhesView({Key? key, required this.peixe}) : super(key: key);
+class PeixeAguaSalgadaDetalhesView extends StatefulWidget {
+  PeixeAguaSalgada peixe;
+  PeixeAguaSalgadaDetalhesView({Key? key, required this.peixe}) : super(key: key);
 
   @override
-  _PeixeAguaDoceDetalhesViewState createState() =>
-      _PeixeAguaDoceDetalhesViewState();
+  _PeixeAguaSalgadaDetalhesViewState createState() =>
+      _PeixeAguaSalgadaDetalhesViewState();
 }
 
-class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
+class _PeixeAguaSalgadaDetalhesViewState extends State<PeixeAguaSalgadaDetalhesView> {
   final FirebaseStorage storage = FirebaseStorage.instance;
 
   @override
@@ -32,8 +31,7 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
           children: [
             FutureBuilder(
                 future: img,
-                builder:
-                    (BuildContext context, AsyncSnapshot<String?> snapshot) {
+                builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
                   if (snapshot.hasData) {
                     return SizedBox(
                       child: Image.network(snapshot.data ?? ""),
@@ -45,7 +43,8 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
                       ),
                     );
                   }
-                }),
+                },
+            ),
             SizedBox(
               height: 10,
             ),
