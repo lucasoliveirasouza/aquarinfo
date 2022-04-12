@@ -15,7 +15,7 @@ class _CrustaceoTipoViewState extends State<CrustaceoTipoView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Crustáceos de água " + widget.tipoAgua),
+        title: Text("Crustáceos " + widget.tipoAgua),
       ),
       body: Container(
           child: GridView.count(

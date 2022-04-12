@@ -32,7 +32,8 @@ class _CrustaceoViewState extends State<CrustaceoView> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CrustaceoTipoView(tipoAgua: "doce"),
+                  builder: (context) =>
+                      CrustaceoTipoView(tipoAgua: "Água doce"),
                 ),
               );
             },
@@ -45,7 +46,8 @@ class _CrustaceoViewState extends State<CrustaceoView> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CrustaceoTipoView(tipoAgua: "salgada"),
+                  builder: (context) =>
+                      CrustaceoTipoView(tipoAgua: "Água salgada"),
                 ),
               );
             },

@@ -1,13 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:infoquario/models/crustaceo.dart';
 import 'package:infoquario/models/tartaruga.dart';
 
-class TartarugaService {
-  CollectionReference tartaruga =
-      FirebaseFirestore.instance.collection('tartaruga');
+class CrustaceoService {
+  CollectionReference cruscateo =
+      FirebaseFirestore.instance.collection('cruscateo');
 
-  TartarugaService() {}
+  CrustaceoService() {}
 
-  void registrarTartaruga(
+  void registrarCruscateo(
       nomePopular,
       nomeCientifico,
       classe,
@@ -16,6 +17,7 @@ class TartarugaService {
       genero,
       origem,
       tipo,
+      tipoHabitat,
       tamanho,
       expectativa,
       populacaoMinima,
@@ -26,7 +28,7 @@ class TartarugaService {
       temperatura,
       dificuldade,
       imagem) {
-    tartaruga.add({
+    cruscateo.add({
       'nomePopular': nomePopular,
       'nomeCientifico': nomeCientifico,
       'classe': classe,
@@ -35,6 +37,7 @@ class TartarugaService {
       'genero': genero,
       'origem': origem,
       'tipo': tipo,
+      'tipoHabitat': tipoHabitat,
       'tamanho': tamanho,
       'expectativa': expectativa,
       'populacaoMinima': populacaoMinima,
@@ -48,12 +51,12 @@ class TartarugaService {
     });
   }
 
-  Future<List<Tartaruga?>?> getAll() async {
-    List<Tartaruga> posts = [];
+  Future<List<Crustaceo?>?> getAll(tipo, tipoHabitat) async {
+    List<Crustaceo> posts = [];
     QuerySnapshot snapshot =
-        await FirebaseFirestore.instance.collection('tartaruga').get();
+        await FirebaseFirestore.instance.collection('crustaceo').get();
     snapshot.docs.forEach((d) {
-      Tartaruga tartaruga = Tartaruga(
+      Crustaceo crustaceo = Crustaceo(
           d["nomePopular"],
           d["nomeCientifico"],
           d["classe"],
@@ -62,6 +65,7 @@ class TartarugaService {
           d["genero"],
           d["origem"],
           d["tipo"],
+          d["tipoHabitat"],
           d["tamanho"],
           d["expectativa"],
           d["populacaoMinima"],
@@ -72,7 +76,11 @@ class TartarugaService {
           d["temperatura"],
           d["dificuldade"],
           d["imagem"]);
-      posts.add(tartaruga);
+      if (tipo == d["tipo"] && tipoHabitat == d["tipoHabitat"]) {
+        posts.add(crustaceo);
+      } else if (tipo == "Todos" && tipoHabitat == d["tipoHabitat"]) {
+        posts.add(crustaceo);
+      }
     });
     return posts;
   }
