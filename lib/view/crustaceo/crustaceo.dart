@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:infoquario/view/crustaceo/crustaceo_tipo.dart';
 import 'package:infoquario/widget/card_item.dart';
@@ -19,42 +18,40 @@ class _CrustaceoViewState extends State<CrustaceoView> {
       ),
       body: Container(
           child: GridView.count(
-            primary: false,
-            padding: const EdgeInsets.all(20),
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            crossAxisCount: 2,
-            children: <Widget>[
-              CardItem(
-                image: "crustaceos/rio.png",
-                title: "Água doce",
-                color: Colors.green.shade100,
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CrustaceoTipoView(tipoAgua: "doce"),
-                    ),
-                  );
-                },
-              ),
-              CardItem(
-                image: "crustaceos/oceano.png",
-                title: "Água salgada",
-                color: Colors.green.shade100,
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CrustaceoTipoView(tipoAgua: "salgada"),
-                    ),
-                  );
-                },
-              ),
-
-            ],
-          )
-      ),
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          CardItem(
+            image: "crustaceos/crustaceos.png",
+            title: "Água doce",
+            color: Colors.green.shade100,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CrustaceoTipoView(tipoAgua: "doce"),
+                ),
+              );
+            },
+          ),
+          CardItem(
+            image: "crustaceos/frutos_do_mar.png",
+            title: "Água salgada",
+            color: Colors.green.shade100,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CrustaceoTipoView(tipoAgua: "salgada"),
+                ),
+              );
+            },
+          ),
+        ],
+      )),
     );
   }
 }
