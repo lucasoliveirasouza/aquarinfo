@@ -14,8 +14,7 @@ class TartarugaCadastroView extends StatefulWidget {
       _TartarugaCadastroViewViewState();
 }
 
-class _TartarugaCadastroViewViewState
-    extends State<TartarugaCadastroView> {
+class _TartarugaCadastroViewViewState extends State<TartarugaCadastroView> {
   final FirebaseStorage storage = FirebaseStorage.instance;
 
   final nomeCientifico = TextEditingController();
@@ -105,7 +104,7 @@ class _TartarugaCadastroViewViewState
                 value: tipo,
                 icon: Icon(null),
                 elevation: 15,
-                decoration: InputDecoration(labelText: 'Tipo de alimentação'),
+                decoration: InputDecoration(labelText: 'Tipo de ambiente'),
                 onChanged: (String? newValue) {
                   setState(() {
                     tipo = newValue!;
