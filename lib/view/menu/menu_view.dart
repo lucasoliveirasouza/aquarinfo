@@ -5,7 +5,7 @@ import 'package:infoquario/view/about/about_view.dart';
 import 'package:infoquario/view/crustaceo/crustaceo.dart';
 import 'package:infoquario/view/peixe_agua_salgada/peixe_agua_salgada.dart';
 import 'package:infoquario/view/plantas/planta.dart';
-import 'package:infoquario/view/tartaruga/tartaruga.dart';
+import 'package:infoquario/view/tartaruga/tartaruga_lista.dart';
 
 class MenuView extends StatefulWidget {
   const MenuView({Key? key}) : super(key: key);
@@ -84,14 +84,14 @@ class _MenuViewState extends State<MenuView> {
             leading: SizedBox(
               width: 25,
               height: 25,
-              child: Image.asset('assets/turtle.png'),
+              child: Image.asset('assets/aquarium.png'),
             ),
-            title: Text('Tartarugas'),
+            title: Text('Plantas/Corais'),
             onTap: () => {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => TartarugaView(),
+                  builder: (context) => PlantaView(),
                 ),
               )
             },
@@ -100,14 +100,14 @@ class _MenuViewState extends State<MenuView> {
             leading: SizedBox(
               width: 25,
               height: 25,
-              child: Image.asset('assets/aquarium.png'),
+              child: Image.asset('assets/turtle.png'),
             ),
-            title: Text('Plantas'),
+            title: Text('Tartarugas'),
             onTap: () => {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PlantaView(),
+                  builder: (context) => TartarugaListaView(),
                 ),
               )
             },

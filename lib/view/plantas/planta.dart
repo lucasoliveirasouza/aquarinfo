@@ -14,7 +14,7 @@ class _PlantaViewState extends State<PlantaView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Plantas"),
+        title: Text("Plantas/Corais"),
       ),
       body: Container(
           child: GridView.count(
@@ -25,7 +25,7 @@ class _PlantaViewState extends State<PlantaView> {
         crossAxisCount: 2,
         children: <Widget>[
           CardItem(
-            image: "plantas/alga.png",
+            image: "plantas/planta.png",
             title: "Plantas",
             color: Colors.green.shade100,
             onTap: () {
@@ -38,7 +38,7 @@ class _PlantaViewState extends State<PlantaView> {
             },
           ),
           CardItem(
-            image: "plantas/alga.png",
+            image: "plantas/coral.png",
             title: "Corais",
             color: Colors.green.shade100,
             onTap: () {

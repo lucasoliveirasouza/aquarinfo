@@ -3,7 +3,7 @@ import 'package:infoquario/models/tartaruga.dart';
 
 class TartarugaService {
   CollectionReference tartaruga =
-  FirebaseFirestore.instance.collection('tartaruga');
+      FirebaseFirestore.instance.collection('tartaruga');
 
   TartarugaService() {}
 
@@ -48,10 +48,10 @@ class TartarugaService {
     });
   }
 
-  Future<List<Tartaruga?>?> getAll(tipo) async {
+  Future<List<Tartaruga?>?> getAll() async {
     List<Tartaruga> posts = [];
     QuerySnapshot snapshot =
-    await FirebaseFirestore.instance.collection('tartaruga').get();
+        await FirebaseFirestore.instance.collection('tartaruga').get();
     snapshot.docs.forEach((d) {
       Tartaruga tartaruga = Tartaruga(
           d["nomePopular"],
@@ -72,9 +72,7 @@ class TartarugaService {
           d["temperatura"],
           d["dificuldade"],
           d["imagem"]);
-      if (d["tipo"] == tipo) {
-        posts.add(tartaruga);
-      }
+      posts.add(tartaruga);
     });
     return posts;
   }

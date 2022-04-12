@@ -1,5 +1,3 @@
-
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/models/tartaruga.dart';
@@ -7,8 +5,9 @@ import 'package:infoquario/services/tartaruga_service.dart';
 import 'package:infoquario/view/tartaruga/tartaruga_detalhes.dart';
 
 class TartarugaListaView extends StatefulWidget {
-  String tipoAgua;
-  TartarugaListaView({Key? key, required this.tipoAgua}) : super(key: key);
+  TartarugaListaView({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _TartarugaListaViewState createState() => _TartarugaListaViewState();
@@ -20,11 +19,10 @@ class _TartarugaListaViewState extends State<TartarugaListaView> {
 
   @override
   Widget build(BuildContext context) {
-    Future<List<Tartaruga?>?> futureList =
-    TartarugaService().getAll(widget.tipoAgua);
+    Future<List<Tartaruga?>?> futureList = TartarugaService().getAll();
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tartaruga de " + widget.tipoAgua),
+          title: Text("Tartarugas"),
         ),
         body: Container(
             padding: EdgeInsets.only(right: 10, left: 10),
@@ -37,7 +35,7 @@ class _TartarugaListaViewState extends State<TartarugaListaView> {
                       shrinkWrap: true,
                       itemBuilder: ((context, index) {
                         Reference imagens =
-                        storage.ref(snapshot.data![index]!.imagem);
+                            storage.ref(snapshot.data![index]!.imagem);
                         final img = imagens.getDownloadURL();
 
                         return Card(
@@ -64,13 +62,13 @@ class _TartarugaListaViewState extends State<TartarugaListaView> {
                                 }),
                             title: Text(snapshot.data![index]!.nomePopular),
                             subtitle:
-                            Text(snapshot.data![index]!.nomeCientifico),
+                                Text(snapshot.data![index]!.nomeCientifico),
                             onTap: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      TartarugaDetalhesView(tartaruga:snapshot.data![index]!),
+                                  builder: (context) => TartarugaDetalhesView(
+                                      tartaruga: snapshot.data![index]!),
                                 ),
                               );
                             },

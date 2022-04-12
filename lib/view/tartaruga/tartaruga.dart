@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:infoquario/view/tartaruga/tartaruga_cadastro.dart';
 import 'package:infoquario/view/tartaruga/tartaruga_lista.dart';
@@ -20,43 +19,40 @@ class _TartarugaViewState extends State<TartarugaView> {
       ),
       body: Container(
           child: GridView.count(
-            primary: false,
-            padding: const EdgeInsets.all(20),
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            crossAxisCount: 2,
-            children: <Widget>[
-              CardItem(
-                image: "tartarugas/tartaruga_doce.png",
-                title: "Água doce",
-                color: Colors.green.shade100,
-                onTap: (){
-                  Navigator.push(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          CardItem(
+            image: "tartarugas/tartaruga_doce.png",
+            title: "Água doce",
+            color: Colors.green.shade100,
+            onTap: () {
+              /*Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => TartarugaListaView(tipoAgua: "Água doce"),
                     ),
-                  );
-                },
-              ),
-              CardItem(
-                image: "tartarugas/tartaruga_marinha.png",
-                title: "Água salgada",
-                color: Colors.green.shade100,
-                onTap: (){
-                  Navigator.push(
+                  );*/
+            },
+          ),
+          CardItem(
+            image: "tartarugas/tartaruga_marinha.png",
+            title: "Água salgada",
+            color: Colors.green.shade100,
+            onTap: () {
+              /*Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => TartarugaListaView(tipoAgua: "Água salgada"),
                     ),
-                  );
-                },
-              ),
-
-            ],
-          )
-      ),
-
+                  );*/
+            },
+          ),
+        ],
+      )),
       floatingActionButton: FloatingActionButton(
         child: Icon(
           Icons.add,
