@@ -24,7 +24,7 @@ class _TartarugaListaViewState extends State<TartarugaListaView> {
     TartarugaService().getAll(widget.tipoAgua);
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tartaruga de água " + widget.tipoAgua),
+          title: Text("Tartaruga de " + widget.tipoAgua),
         ),
         body: Container(
             padding: EdgeInsets.only(right: 10, left: 10),
