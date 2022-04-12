@@ -2,11 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/services/auth_service.dart';
 import 'package:infoquario/view/about/about_view.dart';
-import 'package:infoquario/view/aquario/aquario.dart';
 import 'package:infoquario/view/crustaceo/crustaceo.dart';
 import 'package:infoquario/view/peixe_agua_salgada/peixe_agua_salgada.dart';
+import 'package:infoquario/view/plantas/planta.dart';
 import 'package:infoquario/view/tartaruga/tartaruga.dart';
-
 
 class MenuView extends StatefulWidget {
   const MenuView({Key? key}) : super(key: key);
@@ -103,12 +102,12 @@ class _MenuViewState extends State<MenuView> {
               height: 25,
               child: Image.asset('assets/aquarium.png'),
             ),
-            title: Text('Aquários'),
+            title: Text('Plantas'),
             onTap: () => {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AquarioView(),
+                  builder: (context) => PlantaView(),
                 ),
               )
             },
