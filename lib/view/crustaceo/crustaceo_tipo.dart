@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:infoquario/view/crustaceo/crustaceo_lista.dart';
 import 'package:infoquario/widget/card_item.dart';
@@ -20,55 +19,70 @@ class _CrustaceoTipoViewState extends State<CrustaceoTipoView> {
       ),
       body: Container(
           child: GridView.count(
-            primary: false,
-            padding: const EdgeInsets.all(20),
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            crossAxisCount: 2,
-            children: <Widget>[
-              CardItem(
-                image: "crustaceos/caranguejo.png",
-                title: "Caranguejo",
-                color: Colors.green.shade100,
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CrustaceoListaView(tipo: "Caranguejo", tipoAgua: widget.tipoAgua),
-                    ),
-                  );
-                },
-              ),
-              CardItem(
-                image: "crustaceos/lagosta.png",
-                title: "Lagosta",
-                color: Colors.green.shade100,
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CrustaceoListaView(tipo: "Lagosta", tipoAgua: widget.tipoAgua),
-                    ),
-                  );
-                },
-              ),
-              CardItem(
-                image: "crustaceos/camarao.png",
-                title: "Camarão",
-                color: Colors.green.shade100,
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CrustaceoListaView(tipo: "Camarão", tipoAgua: widget.tipoAgua),
-                    ),
-                  );
-                },
-              ),
-
-            ],
-          )
-      ),
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          CardItem(
+            image: "crustaceos/todos.png",
+            title: "Todos",
+            color: Colors.green.shade100,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CrustaceoListaView(
+                      tipo: "Todos", tipoAgua: widget.tipoAgua),
+                ),
+              );
+            },
+          ),
+          CardItem(
+            image: "crustaceos/caranguejo.png",
+            title: "Caranguejo",
+            color: Colors.green.shade100,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CrustaceoListaView(
+                      tipo: "Caranguejo", tipoAgua: widget.tipoAgua),
+                ),
+              );
+            },
+          ),
+          CardItem(
+            image: "crustaceos/lagosta.png",
+            title: "Lagosta",
+            color: Colors.green.shade100,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CrustaceoListaView(
+                      tipo: "Lagosta", tipoAgua: widget.tipoAgua),
+                ),
+              );
+            },
+          ),
+          CardItem(
+            image: "crustaceos/camarao.png",
+            title: "Camarão",
+            color: Colors.green.shade100,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CrustaceoListaView(
+                      tipo: "Camarão", tipoAgua: widget.tipoAgua),
+                ),
+              );
+            },
+          ),
+        ],
+      )),
     );
   }
 }
