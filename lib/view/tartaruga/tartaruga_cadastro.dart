@@ -210,7 +210,7 @@ class _TartarugaCadastroViewViewState extends State<TartarugaCadastroView> {
                 },
                 items: <String>[
                   'Selecione a dificuldade...',
-                  'Inicante',
+                  'Iniciante',
                   'Intermediário',
                   'Avançado',
                 ].map<DropdownMenuItem<String>>((String value) {
@@ -275,7 +275,7 @@ class _TartarugaCadastroViewViewState extends State<TartarugaCadastroView> {
                         dificuldade,
                         imagem);
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Peixe adicionado com sucesso")));
+                        content: Text("Tartaruga adicionada com sucesso")));
                     Navigator.of(context).pop();
                   }
                 },

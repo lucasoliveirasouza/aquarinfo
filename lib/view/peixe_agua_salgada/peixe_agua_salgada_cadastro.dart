@@ -214,7 +214,7 @@ class _PeixeAguaSalgadaCadastroViewState
                 },
                 items: <String>[
                   'Selecione a dificuldade...',
-                  'Inicante',
+                  'Iniciante',
                   'Intermediário',
                   'Avançado',
                 ].map<DropdownMenuItem<String>>((String value) {

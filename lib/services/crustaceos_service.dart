@@ -3,12 +3,12 @@ import 'package:infoquario/models/crustaceo.dart';
 import 'package:infoquario/models/tartaruga.dart';
 
 class CrustaceoService {
-  CollectionReference cruscateo =
-      FirebaseFirestore.instance.collection('cruscateo');
+  CollectionReference crustaceo =
+      FirebaseFirestore.instance.collection('crustaceo');
 
   CrustaceoService() {}
 
-  void registrarCruscateo(
+  void registrarCrustaceo(
       nomePopular,
       nomeCientifico,
       classe,
@@ -28,7 +28,7 @@ class CrustaceoService {
       temperatura,
       dificuldade,
       imagem) {
-    cruscateo.add({
+    crustaceo.add({
       'nomePopular': nomePopular,
       'nomeCientifico': nomeCientifico,
       'classe': classe,

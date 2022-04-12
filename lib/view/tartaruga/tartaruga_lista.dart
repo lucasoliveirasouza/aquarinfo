@@ -2,6 +2,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/models/tartaruga.dart';
 import 'package:infoquario/services/tartaruga_service.dart';
+import 'package:infoquario/view/tartaruga/tartaruga_cadastro.dart';
 import 'package:infoquario/view/tartaruga/tartaruga_detalhes.dart';
 
 class TartarugaListaView extends StatefulWidget {
@@ -21,60 +22,73 @@ class _TartarugaListaViewState extends State<TartarugaListaView> {
   Widget build(BuildContext context) {
     Future<List<Tartaruga?>?> futureList = TartarugaService().getAll();
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Tartarugas"),
-        ),
-        body: Container(
-            padding: EdgeInsets.only(right: 10, left: 10),
-            child: FutureBuilder(
-                future: futureList,
-                builder: (BuildContext context,
-                    AsyncSnapshot<List<Tartaruga?>?> snapshot) {
-                  return ListView.builder(
-                      itemCount: snapshot.data?.length ?? 0,
-                      shrinkWrap: true,
-                      itemBuilder: ((context, index) {
-                        Reference imagens =
-                            storage.ref(snapshot.data![index]!.imagem);
-                        final img = imagens.getDownloadURL();
+      appBar: AppBar(
+        title: Text("Tartarugas"),
+      ),
+      body: Container(
+          padding: EdgeInsets.only(right: 10, left: 10),
+          child: FutureBuilder(
+              future: futureList,
+              builder: (BuildContext context,
+                  AsyncSnapshot<List<Tartaruga?>?> snapshot) {
+                return ListView.builder(
+                    itemCount: snapshot.data?.length ?? 0,
+                    shrinkWrap: true,
+                    itemBuilder: ((context, index) {
+                      Reference imagens =
+                          storage.ref(snapshot.data![index]!.imagem);
+                      final img = imagens.getDownloadURL();
 
-                        return Card(
-                          child: ListTile(
-                            leading: FutureBuilder(
-                                future: img,
-                                builder: (BuildContext context,
-                                    AsyncSnapshot<String?> snapshot) {
-                                  if (snapshot.hasData) {
-                                    return SizedBox(
-                                      height: 80,
-                                      width: 80,
-                                      child: Image.network(snapshot.data ?? ""),
-                                    );
-                                  } else {
-                                    return SizedBox(
-                                      height: 80,
-                                      width: 80,
-                                      child: Container(
-                                        color: Colors.white,
-                                      ),
-                                    );
-                                  }
-                                }),
-                            title: Text(snapshot.data![index]!.nomePopular),
-                            subtitle:
-                                Text(snapshot.data![index]!.nomeCientifico),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => TartarugaDetalhesView(
-                                      tartaruga: snapshot.data![index]!),
-                                ),
-                              );
-                            },
-                          ),
-                        );
-                      }));
-                })));
+                      return Card(
+                        child: ListTile(
+                          leading: FutureBuilder(
+                              future: img,
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<String?> snapshot) {
+                                if (snapshot.hasData) {
+                                  return SizedBox(
+                                    height: 80,
+                                    width: 80,
+                                    child: Image.network(snapshot.data ?? ""),
+                                  );
+                                } else {
+                                  return SizedBox(
+                                    height: 80,
+                                    width: 80,
+                                    child: Container(
+                                      color: Colors.white,
+                                    ),
+                                  );
+                                }
+                              }),
+                          title: Text(snapshot.data![index]!.nomePopular),
+                          subtitle: Text(snapshot.data![index]!.nomeCientifico),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TartarugaDetalhesView(
+                                    tartaruga: snapshot.data![index]!),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    }));
+              })),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.add,
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => TartarugaCadastroView(),
+            ),
+          );
+        },
+      ),
+    );
   }
 }

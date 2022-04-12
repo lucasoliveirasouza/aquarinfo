@@ -3,18 +3,17 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:infoquario/services/peixe_agua_doce_service.dart';
+import 'package:infoquario/services/crustaceos_service.dart';
 import 'package:infoquario/widget/form_field.dart';
 
-class PeixeAguaDoceCadastroView extends StatefulWidget {
-  const PeixeAguaDoceCadastroView({Key? key}) : super(key: key);
+class CrustaceoCadastroView extends StatefulWidget {
+  const CrustaceoCadastroView({Key? key}) : super(key: key);
 
   @override
-  _PeixeAguaDoceCadastroViewState createState() =>
-      _PeixeAguaDoceCadastroViewState();
+  State<CrustaceoCadastroView> createState() => _CrustaceoCadastroViewState();
 }
 
-class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
+class _CrustaceoCadastroViewState extends State<CrustaceoCadastroView> {
   final FirebaseStorage storage = FirebaseStorage.instance;
 
   final nomeCientifico = TextEditingController();
@@ -35,6 +34,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
   String imagem = "";
   String carregar = "Carregue uma imagem";
   String tipo = 'Selecione o tipo...';
+  String tipoHabitat = 'Selecione o tipo...';
   String tipoAquario = 'Selecione o tipo...';
   String dificuldade = 'Selecione a dificuldade...';
   bool uploading = false;
@@ -104,7 +104,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
                 value: tipo,
                 icon: Icon(null),
                 elevation: 15,
-                decoration: InputDecoration(labelText: 'Tipo de alimentação'),
+                decoration: InputDecoration(labelText: 'Tipo de crustáceo'),
                 onChanged: (String? newValue) {
                   setState(() {
                     tipo = newValue!;
@@ -112,11 +112,32 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
                 },
                 items: <String>[
                   'Selecione o tipo...',
-                  'Carnívoros',
-                  'Herbívoros',
-                  'Onívoros',
-                  'Planctógafos',
-                  'Detritívoros',
+                  'Caranguejo',
+                  'Lagosta',
+                  'Camarão',
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
+            ),
+            Container(
+              child: DropdownButtonFormField<String>(
+                value: tipoHabitat,
+                icon: Icon(null),
+                elevation: 15,
+                decoration: InputDecoration(labelText: 'Tipo de habitat'),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    tipoHabitat = newValue!;
+                  });
+                },
+                items: <String>[
+                  'Selecione o tipo...',
+                  'Água doce',
+                  'Água salgada',
                 ].map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -258,7 +279,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
                         content: Text(
                             "Verifique se uma imagem foi anexada ou todos os campos foram preenchidos")));
                   } else {
-                    PeixeAguaDoceService().registerFreshwater(
+                    CrustaceoService().registrarCrustaceo(
                         nomePopular.text,
                         nomeCientifico.text,
                         classe.text,
@@ -267,6 +288,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
                         genero.text,
                         origem.text,
                         tipo,
+                        tipoHabitat,
                         tamanho.text,
                         expectativa.text,
                         populacaoMinima.text,
@@ -278,7 +300,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
                         dificuldade,
                         imagem);
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Peixe adicionado com sucesso")));
+                        content: Text("Crustáceo adicionado com sucesso")));
                     Navigator.of(context).pop();
                   }
                 },
