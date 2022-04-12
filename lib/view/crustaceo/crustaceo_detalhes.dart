@@ -99,6 +99,9 @@ class _CrustaceoDetalhesViewState extends State<CrustaceoDetalhesView> {
               valor: widget.crustaceo.tipo,
               title: "Tipo:",
             ),
+            SizedBox(
+              height: 3,
+            ),
             LinhaTabela(
               valor: widget.crustaceo.tipoHabitat,
               title: "Tipo de habitat:",
