@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:infoquario/models/peixe_agua_salgada.dart';
 import 'package:infoquario/models/tartaruga.dart';
 
 class TartarugaService {

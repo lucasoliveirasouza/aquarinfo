@@ -5,7 +5,6 @@ import 'package:infoquario/models/peixe_agua_salgada.dart';
 import 'package:infoquario/services/peixe_agua_salgada_service.dart';
 import 'package:infoquario/view/peixe_agua_salgada/peixe_agua_salgada_detalhes.dart';
 
-import '../peixe_agua_doce/peixe_agua_doce_detalhes.dart';
 
 class PeixeAguaSalgadaListaView extends StatefulWidget {
   String tipo;
