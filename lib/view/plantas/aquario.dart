@@ -26,7 +26,7 @@ class _AquarioViewState extends State<AquarioView> {
             crossAxisCount: 2,
             children: <Widget>[
               CardItem(
-                image: "aquarios/aquario.png",
+                image: "aquarios/plantas.png",
                 title: "Aquários",
                 color: Colors.green.shade100,
                 onTap: (){
