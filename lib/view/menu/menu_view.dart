@@ -116,6 +116,19 @@ class _MenuViewState extends State<MenuView> {
             leading: SizedBox(
               width: 25,
               height: 25,
+              child: Image.asset('assets/comunidade.png'),
+            ),
+            title: Text('Comunidade'),
+            onTap: () => {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text("Aba Comunidade ainda não foi criada"))),
+              Navigator.of(context).pop()
+            },
+          ),
+          ListTile(
+            leading: SizedBox(
+              width: 25,
+              height: 25,
               child: Image.asset('assets/about.png'),
             ),
             title: Text('Sobre'),
