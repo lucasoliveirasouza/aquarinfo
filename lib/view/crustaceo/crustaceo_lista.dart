@@ -5,8 +5,8 @@ import 'package:infoquario/services/crustaceos_service.dart';
 import 'package:infoquario/view/crustaceo/crustaceo_detalhes.dart';
 
 class CrustaceoListaView extends StatefulWidget {
-  String tipo, tipoAgua;
-  CrustaceoListaView({Key? key, required this.tipo, required this.tipoAgua})
+  String tipo;
+  CrustaceoListaView({Key? key, required this.tipo})
       : super(key: key);
 
   @override
@@ -21,10 +21,10 @@ class _CrustaceoListaViewState extends State<CrustaceoListaView> {
   @override
   Widget build(BuildContext context) {
     Future<List<Crustaceo?>?> futureList =
-        CrustaceoService().getAll(widget.tipo, widget.tipoAgua);
+        CrustaceoService().getAll(widget.tipo);
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.tipo + " de " + widget.tipoAgua),
+          title: Text(widget.tipo),
         ),
         body: Container(
             padding: EdgeInsets.only(right: 10, left: 10),

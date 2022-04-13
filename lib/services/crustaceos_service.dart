@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:infoquario/models/crustaceo.dart';
-import 'package:infoquario/models/tartaruga.dart';
+
 
 class CrustaceoService {
   CollectionReference crustaceo =
@@ -51,7 +51,7 @@ class CrustaceoService {
     });
   }
 
-  Future<List<Crustaceo?>?> getAll(tipo, tipoHabitat) async {
+  Future<List<Crustaceo?>?> getAll(tipo) async {
     List<Crustaceo> posts = [];
     QuerySnapshot snapshot =
         await FirebaseFirestore.instance.collection('crustaceo').get();
@@ -76,9 +76,9 @@ class CrustaceoService {
           d["temperatura"],
           d["dificuldade"],
           d["imagem"]);
-      if (tipo == d["tipo"] && tipoHabitat == d["tipoHabitat"]) {
+      if (tipo == d["tipo"]) {
         posts.add(crustaceo);
-      } else if (tipo == "Todos" && tipoHabitat == d["tipoHabitat"]) {
+      } else if (tipo == "Todos") {
         posts.add(crustaceo);
       }
     });
