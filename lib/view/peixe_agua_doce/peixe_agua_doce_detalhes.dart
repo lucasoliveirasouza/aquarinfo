@@ -154,13 +154,6 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
               height: 3,
             ),
             LinhaTabela(
-              valor: widget.peixe.fachadaMinima,
-              title: "Fachada mínima:",
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            LinhaTabela(
               valor: widget.peixe.phAgua,
               title: "pH da água:",
             ),

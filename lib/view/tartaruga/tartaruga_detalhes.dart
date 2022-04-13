@@ -152,13 +152,6 @@ class _TartarugaDetalhesViewState extends State<TartarugaDetalhesView> {
               height: 3,
             ),
             LinhaTabela(
-              valor: widget.tartaruga.fachadaMinima,
-              title: "Fachada mínima:",
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            LinhaTabela(
               valor: widget.tartaruga.phAgua,
               title: "pH da água:",
             ),

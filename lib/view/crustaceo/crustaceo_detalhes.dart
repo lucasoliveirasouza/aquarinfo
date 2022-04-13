@@ -159,13 +159,6 @@ class _CrustaceoDetalhesViewState extends State<CrustaceoDetalhesView> {
               height: 3,
             ),
             LinhaTabela(
-              valor: widget.crustaceo.fachadaMinima,
-              title: "Fachada mínima:",
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            LinhaTabela(
               valor: widget.crustaceo.phAgua,
               title: "pH da água:",
             ),

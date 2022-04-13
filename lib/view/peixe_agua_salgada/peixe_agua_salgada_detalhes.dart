@@ -5,14 +5,16 @@ import 'package:infoquario/widget/linha_tabela.dart';
 
 class PeixeAguaSalgadaDetalhesView extends StatefulWidget {
   PeixeAguaSalgada peixe;
-  PeixeAguaSalgadaDetalhesView({Key? key, required this.peixe}) : super(key: key);
+  PeixeAguaSalgadaDetalhesView({Key? key, required this.peixe})
+      : super(key: key);
 
   @override
   _PeixeAguaSalgadaDetalhesViewState createState() =>
       _PeixeAguaSalgadaDetalhesViewState();
 }
 
-class _PeixeAguaSalgadaDetalhesViewState extends State<PeixeAguaSalgadaDetalhesView> {
+class _PeixeAguaSalgadaDetalhesViewState
+    extends State<PeixeAguaSalgadaDetalhesView> {
   final FirebaseStorage storage = FirebaseStorage.instance;
 
   @override
@@ -30,20 +32,20 @@ class _PeixeAguaSalgadaDetalhesViewState extends State<PeixeAguaSalgadaDetalhesV
         child: ListView(
           children: [
             FutureBuilder(
-                future: img,
-                builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
-                  if (snapshot.hasData) {
-                    return SizedBox(
-                      child: Image.network(snapshot.data ?? ""),
-                    );
-                  } else {
-                    return SizedBox(
-                      child: Container(
-                        color: Colors.green.shade50,
-                      ),
-                    );
-                  }
-                },
+              future: img,
+              builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
+                if (snapshot.hasData) {
+                  return SizedBox(
+                    child: Image.network(snapshot.data ?? ""),
+                  );
+                } else {
+                  return SizedBox(
+                    child: Container(
+                      color: Colors.green.shade50,
+                    ),
+                  );
+                }
+              },
             ),
             SizedBox(
               height: 10,
@@ -141,13 +143,6 @@ class _PeixeAguaSalgadaDetalhesViewState extends State<PeixeAguaSalgadaDetalhesV
             LinhaTabela(
               valor: widget.peixe.volumeMinimo,
               title: "Volume mínimo:",
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            LinhaTabela(
-              valor: widget.peixe.fachadaMinima,
-              title: "Fachada mínima:",
             ),
             SizedBox(
               height: 3,
