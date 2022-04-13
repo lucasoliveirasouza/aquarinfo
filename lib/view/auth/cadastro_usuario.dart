@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:infoquario/services/auth_service.dart';
-import 'package:infoquario/view/auth/cadastro_usuario.dart';
-import 'package:infoquario/view/home/home.dart';
 import 'package:provider/provider.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+class CadastroUsuarioView extends StatefulWidget {
+  const CadastroUsuarioView({Key? key}) : super(key: key);
 
   @override
-  _LoginViewState createState() => _LoginViewState();
+  State<CadastroUsuarioView> createState() => _CadastroUsuarioViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
-  final formKey = GlobalKey<FormState>();
+class _CadastroUsuarioViewState extends State<CadastroUsuarioView> {
   final senha = TextEditingController();
   final email = TextEditingController();
-
+  final nome = TextEditingController();
+  final confirmarSenha = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,12 +36,36 @@ class _LoginViewState extends State<LoginView> {
             ),
             Center(
               child: Text(
-                "Bem Vindo ao Infoquário",
+                "Crie sua conta",
                 style: TextStyle(
                   fontSize: 25,
                   color: Colors.green,
                   fontWeight: FontWeight.bold,
                 ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              controller: nome,
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                  labelText: "Nome",
+                  labelStyle: TextStyle(
+                    color: Colors.black38,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                  )),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Informe o email corretamente";
+                } else {
+                  return null;
+                }
+              },
+              style: TextStyle(
+                fontSize: 20,
               ),
             ),
             SizedBox(
@@ -100,13 +122,40 @@ class _LoginViewState extends State<LoginView> {
             SizedBox(
               height: 30,
             ),
+            TextFormField(
+              controller: confirmarSenha,
+              keyboardType: TextInputType.text,
+              obscureText: true,
+              decoration: InputDecoration(
+                  labelText: "Confirme sua senha",
+                  labelStyle: TextStyle(
+                    color: Colors.black38,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                  )),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Informe a senha corretamente";
+                } else if (value.length < 6) {
+                  return "A senha deve ter pelo menos 6 caracteres";
+                } else {
+                  return null;
+                }
+              },
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
             Container(
               height: 50,
               padding: EdgeInsets.only(right: 50, left: 50),
               child: ElevatedButton(
-                child: Text("Entrar"),
+                child: Text("Cadastrar"),
                 onPressed: () {
-                  login();
+                  registrar();
                 },
               ),
             ),
@@ -118,15 +167,10 @@ class _LoginViewState extends State<LoginView> {
                 alignment: Alignment.center,
                 child: TextButton(
                   child: Text(
-                    "Cadastre-se",
+                    "Voltar ao Login",
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CadastroUsuarioView(),
-                      ),
-                    );
+                    Navigator.of(context).pop();
                   },
                 )),
           ],
@@ -135,9 +179,9 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 
-  login() async {
+  registrar() async {
     try {
-      await context.read<AuthService>().login(email.text, senha.text);
+      await context.read<AuthService>().registrar(email.text, senha.text);
     } on AuthException catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message)));
