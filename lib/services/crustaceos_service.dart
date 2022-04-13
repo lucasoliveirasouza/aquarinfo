@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:infoquario/models/crustaceo.dart';
 
-
 class CrustaceoService {
   CollectionReference crustaceo =
       FirebaseFirestore.instance.collection('crustaceo');
@@ -53,8 +52,10 @@ class CrustaceoService {
 
   Future<List<Crustaceo?>?> getAll(tipo) async {
     List<Crustaceo> posts = [];
-    QuerySnapshot snapshot =
-        await FirebaseFirestore.instance.collection('crustaceo').get();
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('crustaceo')
+        .orderBy("nomePopular")
+        .get();
     snapshot.docs.forEach((d) {
       Crustaceo crustaceo = Crustaceo(
           d["nomePopular"],
