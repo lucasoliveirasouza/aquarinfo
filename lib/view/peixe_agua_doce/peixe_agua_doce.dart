@@ -40,7 +40,7 @@ class _PeixeAguaDoceViewState extends State<PeixeAguaDoceView> {
               },
             ),
             CardItem(
-              image: "agua_doce/betta.png",
+              image: "agua_doce/piranha.png",
               title: "Carnívoros",
               color: Colors.green.shade100,
               onTap: (){
