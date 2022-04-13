@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:infoquario/models/planta.dart';
 
-
 class PlantaService {
-  CollectionReference planta =
-  FirebaseFirestore.instance.collection('planta');
+  CollectionReference planta = FirebaseFirestore.instance.collection('planta');
 
   PlantaService() {}
 
@@ -44,10 +42,13 @@ class PlantaService {
       'imagem': imagem,
     });
   }
+
   Future<List<Planta?>?> getAll(tipo) async {
     List<Planta> posts = [];
-    QuerySnapshot snapshot =
-    await FirebaseFirestore.instance.collection('planta').get();
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('planta')
+        .orderBy("nomePopular")
+        .get();
     snapshot.docs.forEach((d) {
       Planta planta = Planta(
           d["nomePopular"],

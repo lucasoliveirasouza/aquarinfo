@@ -50,8 +50,10 @@ class PeixeAguaSalgadaService {
 
   Future<List<PeixeAguaSalgada?>?> getAll(tipo) async {
     List<PeixeAguaSalgada> posts = [];
-    QuerySnapshot snapshot =
-        await FirebaseFirestore.instance.collection('peixeaguasalgada').get();
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('peixeaguasalgada')
+        .orderBy("nomePopular")
+        .get();
     snapshot.docs.forEach((d) {
       PeixeAguaSalgada peixe = PeixeAguaSalgada(
           d["nomePopular"],

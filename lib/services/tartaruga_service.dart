@@ -50,8 +50,10 @@ class TartarugaService {
 
   Future<List<Tartaruga?>?> getAll() async {
     List<Tartaruga> posts = [];
-    QuerySnapshot snapshot =
-        await FirebaseFirestore.instance.collection('tartaruga').get();
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('tartaruga')
+        .orderBy("nomePopular")
+        .get();
     snapshot.docs.forEach((d) {
       Tartaruga tartaruga = Tartaruga(
           d["nomePopular"],
