@@ -1,3 +1,4 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,9 @@ class ForumCadastroView extends StatefulWidget {
 }
 
 class _ForumCadastroViewState extends State<ForumCadastroView> {
+  final FirebaseStorage storage = FirebaseStorage.instance;
+
+  final duvidas = TextEditingController();
   String categoria = 'Selecione a categoria...';
 
   @override
@@ -18,7 +22,7 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
           title: Text("Cadastre aqui sua dúvida"),
         ),
         body: Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+          padding: EdgeInsets.only(left: 20, right: 20, top: 15),
           child: ListView(
             children: [
               Container(
@@ -48,8 +52,33 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
                 ),
               ),
               SizedBox(
-                height: 15,
-              )
+                height: 25,
+              ),
+              TextFormField(
+                minLines:
+                    5, // any number you need (It works as the rows for the textarea)
+                maxLines: null,
+                controller: duvidas,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: "Dúvidas/Sugestões/Dicas",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      new Radius.circular(10.0),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Container(
+                height: 50,
+                child: ElevatedButton(
+                  child: Text("Cadastrar"),
+                  onPressed: () {},
+                ),
+              ),
             ],
           ),
         ));
