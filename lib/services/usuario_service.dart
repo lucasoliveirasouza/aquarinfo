@@ -30,4 +30,20 @@ class UsuarioService {
     });
     return nome;
   }
+
+  Future<String?> getImage(email) async {
+    String imagem = "";
+    QuerySnapshot snapshot =
+        await FirebaseFirestore.instance.collection('usuarios').get();
+    snapshot.docs.forEach((d) {
+      if (d['email'] == email) {
+        if (d['imagem'] == "") {
+          imagem = 'images/img-2022-04-12 18:41:48.230627.png';
+        } else {
+          imagem = d['imagem'];
+        }
+      }
+    });
+    return imagem;
+  }
 }

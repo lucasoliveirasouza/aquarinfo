@@ -20,49 +20,36 @@ class _MenuViewState extends State<MenuView> {
   @override
   Widget build(BuildContext context) {
     final nome = UsuarioService().getUser(auth.currentUser!.email.toString());
+    final imagem =
+        UsuarioService().getImage(auth.currentUser!.email.toString());
+
     return Drawer(
       child: ListView(
         children: [
           Container(
-              height: 100,
-              child: DrawerHeader(
-                child: FutureBuilder(
-                    future: nome,
-                    builder: (BuildContext context,
-                        AsyncSnapshot<String?> snapshot) {
-                      if (snapshot.hasData) {
-                        return ListTile(
-                          title: Text(
-                            snapshot.data ?? "",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          leading: CircleAvatar(
-                            radius: 21,
-                            backgroundImage: AssetImage('assets/fishlogin.png'),
-                            backgroundColor: Colors.transparent,
-                          ),
-                        );
-                      } else {
-                        return ListTile(
-                          title: Text(
-                            "Usuário",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          leading: CircleAvatar(
-                            radius: 21,
-                            backgroundImage: AssetImage('assets/fishlogin.png'),
-                            backgroundColor: Colors.transparent,
-                          ),
-                        );
-                      }
-                    }),
-              )),
+            height: 100,
+            child: DrawerHeader(
+              child: ListTile(
+                title: FutureBuilder(
+                  future: nome,
+                  builder:
+                      (BuildContext context, AsyncSnapshot<String?> snapshot) {
+                    if (snapshot.hasData) {
+                      return Text(snapshot.data ?? "");
+                    } else {
+                      return Text("Usuário");
+                    }
+                  },
+                ),
+                leading: CircleAvatar(
+                  radius: 21,
+                  backgroundImage: AssetImage('assets/user.png'),
+                  backgroundColor: Colors.transparent,
+                ),
+                trailing: Icon(Icons.arrow_forward_ios),
+              ),
+            ),
+          ),
           ListTile(
             leading: SizedBox(
               width: 25,
@@ -142,10 +129,10 @@ class _MenuViewState extends State<MenuView> {
               height: 25,
               child: Image.asset('assets/comunidade.png'),
             ),
-            title: Text('Comunidade'),
+            title: Text('Fórum'),
             onTap: () => {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text("Aba COMUNIDADE ainda não foi criada"))),
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Aba Fórum ainda não foi criada"))),
               Navigator.of(context).pop()
             },
           ),
