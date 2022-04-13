@@ -26,6 +26,19 @@ class _PlantaViewState extends State<PlantaView> {
         crossAxisCount: 2,
         children: <Widget>[
           CardItem(
+            image: "plantas/todos.png",
+            title: "Todos",
+            color: Colors.green.shade100,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PlantaListaView(tipo: "Todos"),
+                ),
+              );
+            },
+          ),
+          CardItem(
             image: "plantas/planta.png",
             title: "Plantas",
             color: Colors.green.shade100,
