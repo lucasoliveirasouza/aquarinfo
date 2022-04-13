@@ -44,7 +44,7 @@ class PlantaService {
       'imagem': imagem,
     });
   }
-  Future<List<Planta?>?> getAll() async {
+  Future<List<Planta?>?> getAll(tipo) async {
     List<Planta> posts = [];
     QuerySnapshot snapshot =
     await FirebaseFirestore.instance.collection('planta').get();
@@ -66,7 +66,11 @@ class PlantaService {
           d["phAgua"],
           d["temperatura"],
           d["imagem"]);
-      posts.add(planta);
+      if (tipo == d["tipo"]) {
+        posts.add(planta);
+      } else if (tipo == "Todos") {
+        posts.add(planta);
+      }
     });
     return posts;
   }
