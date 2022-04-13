@@ -45,6 +45,7 @@ class Crustaceo {
     this.ordem = ordem;
     this.familia = familia;
     this.genero = genero;
+    this.origem =origem;
     this.tipo = tipo;
     this.tipoHabitat = tipoHabitat;
     this.tamanho = tamanho;

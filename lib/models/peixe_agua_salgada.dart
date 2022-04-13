@@ -44,6 +44,7 @@ class PeixeAguaSalgada {
     this.familia = familia;
     this.genero = genero;
     this.tipo = tipo;
+    this.origem =origem;
     this.tamanho = tamanho;
     this.expectativa = expectativa;
     this.populacaoMinima = populacaoMinima;

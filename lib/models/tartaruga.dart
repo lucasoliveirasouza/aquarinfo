@@ -44,6 +44,7 @@ class Tartaruga {
     this.ordem = ordem;
     this.familia = familia;
     this.genero = genero;
+    this.origem = origem;
     this.tipo = tipo;
     this.tamanho = tamanho;
     this.expectativa = expectativa;
