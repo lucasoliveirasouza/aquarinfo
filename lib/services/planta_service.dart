@@ -44,7 +44,6 @@ class PlantaService {
       'imagem': imagem,
     });
   }
-
   Future<List<Planta?>?> getAll() async {
     List<Planta> posts = [];
     QuerySnapshot snapshot =

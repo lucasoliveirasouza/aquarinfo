@@ -98,6 +98,13 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
               height: 3,
             ),
             LinhaTabela(
+              valor: widget.peixe.origem,
+              title: "Origem:",
+            ),
+            SizedBox(
+              height: 3,
+            ),
+            LinhaTabela(
               valor: widget.peixe.tipo,
               title: "Tipo:",
             ),
