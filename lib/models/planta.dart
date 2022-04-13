@@ -27,11 +27,12 @@ class Planta {
       String origem,
       String tipo,
       String tamanho,
-      String volumeMinimo,
-      String fachadaMinima,
+      String dificuldade,
+      String crescimento,
+      String iluminacao,
+      String substrato,
       String phAgua,
       String temperatura,
-      String dificuldade,
       String imagem) {
     this.nomePopular = nomePopular;
     this.nomeCientifico = nomeCientifico;
