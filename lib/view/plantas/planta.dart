@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:infoquario/view/plantas/planta_cadastro.dart';
 import 'package:infoquario/view/plantas/planta_lista.dart';
 import 'package:infoquario/widget/card_item.dart';
 
@@ -51,7 +52,21 @@ class _PlantaViewState extends State<PlantaView> {
             },
           ),
         ],
-      )),
+      ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.add,
+        ),
+        onPressed: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => PlantaCadastroView()
+            ),
+          );
+        },
+      ),
     );
   }
 }

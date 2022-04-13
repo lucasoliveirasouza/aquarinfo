@@ -13,6 +13,10 @@ class PlantaDetalhesView extends StatefulWidget {
 class _PlantaDetalhesViewState extends State<PlantaDetalhesView> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("oi"),
+      ),
+    );
   }
 }
