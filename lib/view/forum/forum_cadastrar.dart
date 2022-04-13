@@ -1,6 +1,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:infoquario/widget/form_field.dart';
 
 class ForumCadastroView extends StatefulWidget {
   const ForumCadastroView({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
   final FirebaseStorage storage = FirebaseStorage.instance;
 
   final duvidas = TextEditingController();
+  final assunto = TextEditingController();
   String categoria = 'Selecione a categoria...';
 
   @override
@@ -49,6 +51,21 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
                       child: Text(value),
                     );
                   }).toList(),
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              TextFormField(
+                controller: assunto,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: "Assunto",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      new Radius.circular(10.0),
+                    ),
+                  ),
                 ),
               ),
               SizedBox(
