@@ -4,6 +4,7 @@ import 'package:infoquario/services/auth_service.dart';
 import 'package:infoquario/services/usuario_service.dart';
 import 'package:infoquario/view/about/about_view.dart';
 import 'package:infoquario/view/crustaceo/crustaceo_tipo.dart';
+import 'package:infoquario/view/forum/forum.dart';
 import 'package:infoquario/view/peixe_agua_salgada/peixe_agua_salgada.dart';
 import 'package:infoquario/view/plantas/planta.dart';
 import 'package:infoquario/view/tartaruga/tartaruga_lista.dart';
@@ -131,9 +132,12 @@ class _MenuViewState extends State<MenuView> {
             ),
             title: Text('Fórum'),
             onTap: () => {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("Aba Fórum ainda não foi criada"))),
-              Navigator.of(context).pop()
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ForumView(),
+                ),
+              )
             },
           ),
           ListTile(
