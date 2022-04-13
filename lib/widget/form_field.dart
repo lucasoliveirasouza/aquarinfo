@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FormFieldPadrao extends StatelessWidget{
+class FormFieldPadrao extends StatelessWidget {
   TextEditingController controle;
   String title;
 
@@ -8,20 +8,19 @@ class FormFieldPadrao extends StatelessWidget{
     Key? key,
     required this.controle,
     required this.title,
-
   }) : super(key: key);
 
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return TextFormField(
       controller: controle,
       keyboardType: TextInputType.text,
       decoration: InputDecoration(
-          labelText: title,
-          labelStyle: TextStyle(
-            color: Colors.black38,
-            fontWeight: FontWeight.w400,
-            fontSize: 20,
-          )
+        labelText: title,
+        labelStyle: TextStyle(
+          color: Colors.black38,
+          fontWeight: FontWeight.w400,
+          fontSize: 20,
+        ),
       ),
       style: TextStyle(
         fontSize: 20,

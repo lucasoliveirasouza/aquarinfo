@@ -125,6 +125,9 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
                 }).toList(),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
             FormFieldPadrao(
               controle: tamanho,
               title: "Tamanho",
