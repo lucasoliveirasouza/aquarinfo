@@ -121,7 +121,7 @@ class _MenuViewState extends State<MenuView> {
             title: Text('Comunidade'),
             onTap: () => {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text("Aba Comunidade ainda não foi criada"))),
+              content: Text("Aba COMUNIDADE ainda não foi criada"))),
               Navigator.of(context).pop()
             },
           ),
