@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infoquario/services/auth_service.dart';
+import 'package:infoquario/services/usuario_service.dart';
 import 'package:provider/provider.dart';
 
 class CadastroUsuarioView extends StatefulWidget {
@@ -155,7 +156,15 @@ class _CadastroUsuarioViewState extends State<CadastroUsuarioView> {
               child: ElevatedButton(
                 child: Text("Cadastrar"),
                 onPressed: () {
-                  registrar();
+                  if (senha.text != confirmarSenha.text) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("As senhas não conferem")));
+                  } else {
+                    UsuarioService()
+                        .cadastrarUsuario(nome.text, email.text, senha.text);
+                    registrar();
+                    Navigator.of(context).pop();
+                  }
                 },
               ),
             ),

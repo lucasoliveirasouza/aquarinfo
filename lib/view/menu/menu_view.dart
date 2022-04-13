@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/services/auth_service.dart';
+import 'package:infoquario/services/usuario_service.dart';
 import 'package:infoquario/view/about/about_view.dart';
 import 'package:infoquario/view/crustaceo/crustaceo_tipo.dart';
 import 'package:infoquario/view/peixe_agua_salgada/peixe_agua_salgada.dart';
@@ -18,26 +19,49 @@ class _MenuViewState extends State<MenuView> {
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
+    final nome = UsuarioService().getUser(auth.currentUser!.email.toString());
     return Drawer(
       child: ListView(
         children: [
           Container(
               height: 100,
               child: DrawerHeader(
-                child: ListTile(
-                  title: Text(
-                    auth.currentUser!.email.toString(),
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  leading: CircleAvatar(
-                    radius: 21,
-                    backgroundImage: AssetImage('assets/fishlogin.png'),
-                    backgroundColor: Colors.transparent,
-                  ),
-                ),
+                child: FutureBuilder(
+                    future: nome,
+                    builder: (BuildContext context,
+                        AsyncSnapshot<String?> snapshot) {
+                      if (snapshot.hasData) {
+                        return ListTile(
+                          title: Text(
+                            snapshot.data ?? "",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          leading: CircleAvatar(
+                            radius: 21,
+                            backgroundImage: AssetImage('assets/fishlogin.png'),
+                            backgroundColor: Colors.transparent,
+                          ),
+                        );
+                      } else {
+                        return ListTile(
+                          title: Text(
+                            "Usuário",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          leading: CircleAvatar(
+                            radius: 21,
+                            backgroundImage: AssetImage('assets/fishlogin.png'),
+                            backgroundColor: Colors.transparent,
+                          ),
+                        );
+                      }
+                    }),
               )),
           ListTile(
             leading: SizedBox(
@@ -121,7 +145,7 @@ class _MenuViewState extends State<MenuView> {
             title: Text('Comunidade'),
             onTap: () => {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text("Aba COMUNIDADE ainda não foi criada"))),
+                  content: Text("Aba COMUNIDADE ainda não foi criada"))),
               Navigator.of(context).pop()
             },
           ),
