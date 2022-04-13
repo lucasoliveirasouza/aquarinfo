@@ -54,7 +54,7 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
                 ),
               ),
               SizedBox(
-                height: 25,
+                height: 15,
               ),
               TextFormField(
                 controller: assunto,
@@ -69,7 +69,7 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
                 ),
               ),
               SizedBox(
-                height: 25,
+                height: 15,
               ),
               TextFormField(
                 minLines:
