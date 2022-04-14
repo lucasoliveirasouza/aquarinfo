@@ -24,7 +24,7 @@ class _ForumViewState extends State<ForumView> {
         title: Text("Fórum"),
       ),
       body: Container(
-          padding: EdgeInsets.only(right: 15, left: 15,top: 10),
+          padding: EdgeInsets.only(right: 15, left: 15, top: 10),
           child: FutureBuilder(
               future: futureList,
               builder: (BuildContext context,
@@ -34,8 +34,6 @@ class _ForumViewState extends State<ForumView> {
                     shrinkWrap: true,
                     itemBuilder: ((context, index) {
                       return Container(
-
-
                         child: Card(
                           color: Colors.green.shade50,
                           shape: RoundedRectangleBorder(
@@ -47,7 +45,7 @@ class _ForumViewState extends State<ForumView> {
                           ),
                           child: ListTile(
                             title: Text(snapshot.data![index]!.usuario),
-                            subtitle: Text(snapshot.data![index]!.descricao),
+                            subtitle: Text(snapshot.data![index]!.assunto),
                             leading: Icon(
                               Icons.account_circle,
                               size: 50,
@@ -58,8 +56,8 @@ class _ForumViewState extends State<ForumView> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => ForumDetalhesView(
-                                      forum: snapshot.data![index]!,
-                                      usuario: widget.usuario,
+                                    forum: snapshot.data![index]!,
+                                    usuario: snapshot.data![index]!.usuario,
                                   ),
                                 ),
                               );
@@ -67,12 +65,8 @@ class _ForumViewState extends State<ForumView> {
                           ),
                         ),
                       );
-                    }
-                    )
-                );
-              }
-          )
-      ),
+                    }));
+              })),
       floatingActionButton: FloatingActionButton(
         child: Icon(
           Icons.add,
