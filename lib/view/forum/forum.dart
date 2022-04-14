@@ -34,9 +34,17 @@ class _ForumViewState extends State<ForumView> {
                     shrinkWrap: true,
                     itemBuilder: ((context, index) {
                       return Container(
-                        height: 75,
+
+
                         child: Card(
                           color: Colors.green.shade50,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              color: Colors.green,
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                           child: ListTile(
                             title: Text(snapshot.data![index]!.usuario),
                             subtitle: Text(snapshot.data![index]!.descricao),
