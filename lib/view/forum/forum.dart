@@ -24,7 +24,7 @@ class _ForumViewState extends State<ForumView> {
         title: Text("Fórum"),
       ),
       body: Container(
-          padding: EdgeInsets.only(right: 15, left: 15,top: 15),
+          padding: EdgeInsets.only(right: 15, left: 15,top: 10),
           child: FutureBuilder(
               future: futureList,
               builder: (BuildContext context,
@@ -33,24 +33,28 @@ class _ForumViewState extends State<ForumView> {
                     itemCount: snapshot.data?.length ?? 0,
                     shrinkWrap: true,
                     itemBuilder: ((context, index) {
-                      return Card(
-                        child: ListTile(
-                          title: Text(snapshot.data![index]!.usuario),
-                          subtitle: Text(snapshot.data![index]!.descricao),
-                          leading: Icon(
-                            Icons.account_circle,
-                            size: 50,
-                            color: Colors.green,
+                      return Container(
+                        height: 75,
+                        child: Card(
+                          color: Colors.green.shade50,
+                          child: ListTile(
+                            title: Text(snapshot.data![index]!.usuario),
+                            subtitle: Text(snapshot.data![index]!.descricao),
+                            leading: Icon(
+                              Icons.account_circle,
+                              size: 50,
+                              color: Colors.green,
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ForumDetalhesView(
+                                      forum: snapshot.data![index]!),
+                                ),
+                              );
+                            },
                           ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ForumDetalhesView(
-                                    forum: snapshot.data![index]!),
-                              ),
-                            );
-                          },
                         ),
                       );
                     }

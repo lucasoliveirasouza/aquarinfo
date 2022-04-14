@@ -18,6 +18,35 @@ class _ForumDetalhesViewState extends State<ForumDetalhesView> {
       appBar: AppBar(
         title: Text("Interação com o fórum"),
       ),
+      body: Container(
+        padding:  EdgeInsets.all(10),
+        child: ListView(
+          children: [
+            Card(
+              color: Colors.green.shade50,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(
+                    color: Colors.green,
+                    width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Container(
+                padding: EdgeInsets.all(15),
+
+                child: Text(
+                  widget.forum.descricao,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
