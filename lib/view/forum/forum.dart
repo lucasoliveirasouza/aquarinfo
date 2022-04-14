@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:infoquario/models/forum.dart';
 import 'package:infoquario/services/forum_service.dart';
 import 'package:infoquario/view/forum/forum_cadastrar.dart';
-import 'package:infoquario/view/forum/forum_detalhes.dart';
+import 'package:infoquario/view/forum/lista_comentarios.dart';
 
 class ForumView extends StatefulWidget {
   String usuario;
@@ -65,7 +65,8 @@ class _ForumViewState extends State<ForumView> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => ForumDetalhesView(
+                                      builder: (context) =>
+                                          ListaComentariosView(
                                         forum: snapshot.data![index]!,
                                         nome: snapshot.data![index]!.usuario,
                                         usuario: widget.usuario,
@@ -86,7 +87,8 @@ class _ForumViewState extends State<ForumView> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => ForumDetalhesView(
+                                      builder: (context) =>
+                                          ListaComentariosView(
                                         forum: snapshot.data![index]!,
                                         nome: snapshot.data![index]!.usuario,
                                         usuario: widget.usuario,

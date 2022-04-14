@@ -27,7 +27,7 @@ class ComentarioService {
           .orderBy("hora")
           .get();
       snapshot.docs.forEach((d) {
-        if (id == d["id"]) {
+        if (id == d["idForum"]) {
           Comentario comentario =
               Comentario(d["descricao"], d["usuario"], d["hora"], d["idForum"]);
           comentarios.add(comentario);
