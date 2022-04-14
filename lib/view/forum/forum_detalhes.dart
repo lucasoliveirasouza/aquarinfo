@@ -5,7 +5,8 @@ import 'package:infoquario/models/forum.dart';
 
 class ForumDetalhesView extends StatefulWidget {
   Forum forum;
-  ForumDetalhesView({Key? key, required this.forum}) : super(key: key);
+  String usuario;
+  ForumDetalhesView({Key? key, required this.forum, required this.usuario}) : super(key: key);
 
   @override
   _ForumDetalhesViewState createState() => _ForumDetalhesViewState();
@@ -16,12 +17,24 @@ class _ForumDetalhesViewState extends State<ForumDetalhesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Interação com o fórum"),
+        title: Text("Interações"),
       ),
       body: Container(
         padding:  EdgeInsets.all(10),
         child: ListView(
           children: [
+            Center(
+              child: Text(
+                  "Publicado por " + widget.usuario + ":",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.green
+                  ),
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
             Card(
               color: Colors.green.shade50,
               shape: RoundedRectangleBorder(
@@ -37,16 +50,25 @@ class _ForumDetalhesViewState extends State<ForumDetalhesView> {
                 child: Text(
                   widget.forum.descricao,
                   style: TextStyle(
+                    color: Colors.green,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
 
                   ),
                 ),
               ),
-            )
+            ),
+            Divider(
+              color: Colors.green,
+            ),
+            Container(
+
+            ),
+
           ],
         ),
       ),
+
     );
   }
 }

@@ -58,7 +58,9 @@ class _ForumViewState extends State<ForumView> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => ForumDetalhesView(
-                                      forum: snapshot.data![index]!),
+                                      forum: snapshot.data![index]!,
+                                      usuario: widget.usuario,
+                                  ),
                                 ),
                               );
                             },
