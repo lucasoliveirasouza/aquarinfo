@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:infoquario/models/forum.dart';
 import 'package:infoquario/services/forum_service.dart';
 import 'package:infoquario/view/forum/forum_cadastrar.dart';
+import 'package:infoquario/view/forum/forum_detalhes.dart';
 
 class ForumView extends StatefulWidget {
   String usuario;
@@ -42,13 +43,13 @@ class _ForumViewState extends State<ForumView> {
                             color: Colors.green,
                           ),
                           onTap: () {
-                            /*Navigator.push(
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => TartarugaDetalhesView(
-                                    tartaruga: snapshot.data![index]!),
+                                builder: (context) => ForumDetalhesView(
+                                    forum: snapshot.data![index]!),
                               ),
-                            );*/
+                            );
                           },
                         ),
                       );
