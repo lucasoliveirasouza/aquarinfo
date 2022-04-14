@@ -25,14 +25,17 @@ class _ForumDetalhesViewState extends State<ForumDetalhesView> {
             Center(
               child: Text(
                 "Publicado por " + widget.usuario + ":",
-                style: TextStyle(fontSize: 15, color: Colors.green),
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.green,
+                ),
               ),
             ),
             SizedBox(
               height: 5,
             ),
             Card(
-              color: Colors.green.shade50,
+              color: Colors.grey.shade200,
               shape: RoundedRectangleBorder(
                 side: BorderSide(
                   color: Colors.green,
