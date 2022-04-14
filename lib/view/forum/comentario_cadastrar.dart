@@ -2,14 +2,18 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/services/comentario_service.dart';
 
-class CometarioCadastrarView extends StatefulWidget {
-  const CometarioCadastrarView({Key? key}) : super(key: key);
+class ComentarioCadastrarView extends StatefulWidget {
+  String usuario, idForum;
+  ComentarioCadastrarView(
+      {Key? key, required this.usuario, required this.idForum})
+      : super(key: key);
 
   @override
-  State<CometarioCadastrarView> createState() => _CometarioCadastrarViewState();
+  State<ComentarioCadastrarView> createState() =>
+      _ComentarioCadastrarViewState();
 }
 
-class _CometarioCadastrarViewState extends State<CometarioCadastrarView> {
+class _ComentarioCadastrarViewState extends State<ComentarioCadastrarView> {
   final FirebaseStorage storage = FirebaseStorage.instance;
   final descricao = TextEditingController();
 
@@ -20,6 +24,7 @@ class _CometarioCadastrarViewState extends State<CometarioCadastrarView> {
         title: Text("Responder"),
       ),
       body: Container(
+        padding: EdgeInsets.all(10),
         child: ListView(
           children: [
             TextFormField(
@@ -29,7 +34,7 @@ class _CometarioCadastrarViewState extends State<CometarioCadastrarView> {
               controller: descricao,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                labelText: "Dúvidas/Sugestões/Dicas",
+                labelText: "Resposta",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     new Radius.circular(10.0),
@@ -43,7 +48,7 @@ class _CometarioCadastrarViewState extends State<CometarioCadastrarView> {
             Container(
               height: 50,
               child: ElevatedButton(
-                child: Text("Cadastrar"),
+                child: Text("Responder"),
                 onPressed: () {
                   DateTime now = DateTime.now();
 

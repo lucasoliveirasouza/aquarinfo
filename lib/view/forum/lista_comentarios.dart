@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:infoquario/models/comentario.dart';
 import 'package:infoquario/models/forum.dart';
 import 'package:infoquario/services/comentario_service.dart';
+import 'package:infoquario/view/forum/comentario_cadastrar.dart';
 
 class ListaComentariosView extends StatefulWidget {
   Forum forum;
@@ -88,7 +89,6 @@ class _ListaComentariosViewState extends State<ListaComentariosView> {
                             ),
                             title: Text(snapshot.data![index]!.usuario),
                             subtitle: Text(snapshot.data![index]!.descricao),
-                            onTap: () {},
                           ),
                         );
                       }));
@@ -97,9 +97,19 @@ class _ListaComentariosViewState extends State<ListaComentariosView> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ComentarioCadastrarView(
+                usuario: widget.usuario,
+                idForum: widget.idForum,
+              ),
+            ),
+          );
+        },
         child: Icon(
-          Icons.add,
+          Icons.send,
         ),
       ),
 
