@@ -33,37 +33,76 @@ class _ForumViewState extends State<ForumView> {
                     itemCount: snapshot.data?.length ?? 0,
                     shrinkWrap: true,
                     itemBuilder: ((context, index) {
-                      return Container(
-                        child: Card(
-                          color: Colors.green.shade50,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              color: Colors.green,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: ListTile(
-                            title: Text(snapshot.data![index]!.usuario),
-                            subtitle: Text(snapshot.data![index]!.assunto),
-                            leading: Icon(
-                              Icons.account_circle,
-                              size: 50,
-                              color: Colors.green,
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ForumDetalhesView(
-                                    forum: snapshot.data![index]!,
-                                    usuario: snapshot.data![index]!.usuario,
-                                  ),
+                      return Column(
+                        children: [
+                          Container(
+                            child: Card(
+                              color: Colors.grey.shade200,
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                  color: Colors.green,
+                                  width: 1,
                                 ),
-                              );
-                            },
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                    title: Text(
+                                      snapshot.data![index]!.usuario,
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    leading: Icon(
+                                      Icons.account_circle,
+                                      size: 50,
+                                      color: Colors.green,
+                                    ),
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              ForumDetalhesView(
+                                            forum: snapshot.data![index]!,
+                                            usuario:
+                                                snapshot.data![index]!.usuario,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  Divider(
+                                    color: Colors.green,
+                                  ),
+                                  ListTile(
+                                    title: Text(
+                                      snapshot.data![index]!.descricao,
+                                    ),
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              ForumDetalhesView(
+                                            forum: snapshot.data![index]!,
+                                            usuario:
+                                                snapshot.data![index]!.usuario,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
+                          SizedBox(
+                            height: 10,
+                          )
+                        ],
                       );
                     }));
               })),
