@@ -20,7 +20,7 @@ class _ForumDetalhesViewState extends State<ForumDetalhesView> {
       ),
       body: Container(
         padding: EdgeInsets.all(10),
-        child: ListView(
+        child: Column(
           children: [
             Center(
               child: Text(
