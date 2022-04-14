@@ -34,9 +34,13 @@ class _ForumViewState extends State<ForumView> {
                     itemBuilder: ((context, index) {
                       return Card(
                         child: ListTile(
-                          title: Text(snapshot.data![index]!.assunto),
+                          title: Text(snapshot.data![index]!.usuario),
                           subtitle: Text(snapshot.data![index]!.descricao),
-                          trailing: Icon(Icons.arrow_forward_ios_outlined),
+                          leading: Icon(
+                            Icons.account_circle,
+                            size: 50,
+                            color: Colors.green,
+                          ),
                           onTap: () {
                             /*Navigator.push(
                               context,
