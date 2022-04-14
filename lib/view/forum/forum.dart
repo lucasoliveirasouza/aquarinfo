@@ -1,21 +1,59 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:infoquario/models/forum.dart';
+import 'package:infoquario/services/forum_service.dart';
 import 'package:infoquario/view/forum/forum_cadastrar.dart';
 
 class ForumView extends StatefulWidget {
-  const ForumView({Key? key}) : super(key: key);
+  String usuario;
+  ForumView({Key? key, required this.usuario}) : super(key: key);
 
   @override
   State<ForumView> createState() => _ForumViewState();
 }
 
 class _ForumViewState extends State<ForumView> {
+  final FirebaseStorage storage = FirebaseStorage.instance;
+
   @override
   Widget build(BuildContext context) {
+    Future<List<Forum?>?> futureList = ForumService().getAll();
     return Scaffold(
       appBar: AppBar(
-        title: Text("Forúm"),
+        title: Text("Fórum"),
       ),
-      body: Container(),
+      body: Container(
+          padding: EdgeInsets.only(right: 15, left: 15,top: 15),
+          child: FutureBuilder(
+              future: futureList,
+              builder: (BuildContext context,
+                  AsyncSnapshot<List<Forum?>?> snapshot) {
+                return ListView.builder(
+                    itemCount: snapshot.data?.length ?? 0,
+                    shrinkWrap: true,
+                    itemBuilder: ((context, index) {
+                      return Card(
+                        child: ListTile(
+                          title: Text(snapshot.data![index]!.assunto),
+                          subtitle: Text(snapshot.data![index]!.descricao),
+                          trailing: Icon(Icons.arrow_forward_ios_outlined),
+                          onTap: () {
+                            /*Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TartarugaDetalhesView(
+                                    tartaruga: snapshot.data![index]!),
+                              ),
+                            );*/
+                          },
+                        ),
+                      );
+                    }
+                    )
+                );
+              }
+          )
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(
           Icons.add,
@@ -24,7 +62,7 @@ class _ForumViewState extends State<ForumView> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ForumCadastroView(),
+              builder: (context) => ForumCadastroView(usuario: widget.usuario),
             ),
           );
         },

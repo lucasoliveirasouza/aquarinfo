@@ -1,10 +1,12 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:infoquario/services/forum_service.dart';
 import 'package:infoquario/widget/form_field.dart';
 
 class ForumCadastroView extends StatefulWidget {
-  const ForumCadastroView({Key? key}) : super(key: key);
+  String usuario;
+  ForumCadastroView({Key? key, required this.usuario}) : super(key: key);
 
   @override
   State<ForumCadastroView> createState() => _ForumCadastroViewState();
@@ -13,7 +15,7 @@ class ForumCadastroView extends StatefulWidget {
 class _ForumCadastroViewState extends State<ForumCadastroView> {
   final FirebaseStorage storage = FirebaseStorage.instance;
 
-  final duvidas = TextEditingController();
+  final descricao = TextEditingController();
   final assunto = TextEditingController();
   String categoria = 'Selecione a categoria...';
 
@@ -21,7 +23,7 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Cadastre aqui sua dúvida"),
+          title: Text("Cadastre aqui"),
         ),
         body: Container(
           padding: EdgeInsets.only(left: 20, right: 20, top: 15),
@@ -40,11 +42,12 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
                   },
                   items: <String>[
                     'Selecione a categoria...',
+                    'Crustáceos',
                     'Peixes de água doce',
                     'Peixes de água salgada',
-                    'Crustáceos',
-                    'Tartarugas',
                     'Plantas',
+                    'Tartarugas',
+                    'Outros',
                   ].map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -75,7 +78,7 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
                 minLines:
                     5, // any number you need (It works as the rows for the textarea)
                 maxLines: null,
-                controller: duvidas,
+                controller: descricao,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   labelText: "Dúvidas/Sugestões/Dicas",
@@ -93,7 +96,12 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
                 height: 50,
                 child: ElevatedButton(
                   child: Text("Cadastrar"),
-                  onPressed: () {},
+                  onPressed: () {
+
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(ForumService().cadastrarForum(categoria, assunto.text, descricao.text, widget.usuario).toString())));
+                    Navigator.of(context).pop();
+                  },
                 ),
               ),
             ],

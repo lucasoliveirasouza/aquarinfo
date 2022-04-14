@@ -16,7 +16,6 @@ class TartarugaListaView extends StatefulWidget {
 
 class _TartarugaListaViewState extends State<TartarugaListaView> {
   final FirebaseStorage storage = FirebaseStorage.instance;
-  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +74,9 @@ class _TartarugaListaViewState extends State<TartarugaListaView> {
                         ),
                       );
                     }));
-              })),
+              }
+              )
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(
           Icons.add,

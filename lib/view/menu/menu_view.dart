@@ -17,7 +17,9 @@ class MenuView extends StatefulWidget {
 }
 
 class _MenuViewState extends State<MenuView> {
+  String usuario = "";
   FirebaseAuth auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     final nome = UsuarioService().getUser(auth.currentUser!.email.toString());
@@ -36,6 +38,8 @@ class _MenuViewState extends State<MenuView> {
                   builder:
                       (BuildContext context, AsyncSnapshot<String?> snapshot) {
                     if (snapshot.hasData) {
+                        usuario = snapshot.data ?? "";
+
                       return Text(snapshot.data ?? "");
                     } else {
                       return Text("Usuário");
@@ -135,7 +139,7 @@ class _MenuViewState extends State<MenuView> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ForumView(),
+                  builder: (context) => ForumView(usuario: usuario),
                 ),
               )
             },
