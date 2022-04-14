@@ -69,6 +69,7 @@ class _ForumDetalhesViewState extends State<ForumDetalhesView> {
                         child: TextFormField(
                           decoration: const InputDecoration(
                             hintText: "  Comentar :",
+                            border: InputBorder.none,
                           ),
                         ),
                       ),
