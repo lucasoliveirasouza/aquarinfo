@@ -34,7 +34,7 @@ class _ComentarioCadastrarViewState extends State<ComentarioCadastrarView> {
               controller: descricao,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                labelText: "Resposta",
+                labelText: "Resposta:",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     new Radius.circular(10.0),
