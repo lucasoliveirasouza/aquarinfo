@@ -97,9 +97,16 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
                 child: ElevatedButton(
                   child: Text("Cadastrar"),
                   onPressed: () {
+                    DateTime now = DateTime.now();
+
+                    String hora =
+                        "Às ${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')} de ${now.day.toString().padLeft(2, '0')}/${now.month.toString().padLeft(2, '0')}/${now.year.toString()}";
 
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(ForumService().cadastrarForum(categoria, assunto.text, descricao.text, widget.usuario).toString())));
+                        content: Text(ForumService()
+                            .cadastrarForum(categoria, assunto.text,
+                                descricao.text, widget.usuario, hora)
+                            .toString())));
                     Navigator.of(context).pop();
                   },
                 ),

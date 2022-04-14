@@ -58,7 +58,33 @@ class _ForumDetalhesViewState extends State<ForumDetalhesView> {
             Divider(
               color: Colors.green,
             ),
-            Container(),
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Card(
+                margin: const EdgeInsets.only(bottom: 30),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Expanded(
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                            hintText: "  Comentar :",
+                          ),
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        print('Clicou');
+                      },
+                      icon: const Icon(
+                        Icons.send,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
