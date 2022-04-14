@@ -16,7 +16,7 @@ class _ForumDetalhesViewState extends State<ForumDetalhesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Interações"),
+        title: Text("Interações "),
       ),
       body: Container(
         padding: EdgeInsets.all(10),
