@@ -1,8 +1,9 @@
 class Forum {
-  late String categoria, assunto, descricao, usuario, hora;
+  late String id, categoria, assunto, descricao, usuario, hora;
 
-  Forum(String categoria, String assunto, String descricao, String usuario,
-      String hora) {
+  Forum(String id, String categoria, String assunto, String descricao,
+      String usuario, String hora) {
+    this.id = id;
     this.categoria = categoria;
     this.assunto = assunto;
     this.descricao = descricao;

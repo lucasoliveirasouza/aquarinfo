@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:infoquario/models/comentario.dart';
 import 'package:infoquario/models/forum.dart';
 
 class ComentarioService {
@@ -18,24 +19,24 @@ class ComentarioService {
     }
   }
 
-  Future<List<Forum?>?> getAll() async {
-    List<Forum> foruns = [];
+  Future<List<Comentario?>?> getAll(id) async {
+    List<Comentario> comentarios = [];
     try {
       QuerySnapshot snapshot = await FirebaseFirestore.instance
-          .collection('forum')
-          .orderBy("assunto")
+          .collection('comentario')
+          .orderBy("hora")
           .get();
       snapshot.docs.forEach((d) {
-        print(d.id);
-
-        Forum forum = Forum(d["categoria"], d["assunto"], d["descricao"],
-            d["usuario"], d["hora"]);
-        foruns.add(forum);
+        if (id == d["id"]) {
+          Comentario comentario =
+              Comentario(d["descricao"], d["usuario"], d["hora"], d["idForum"]);
+          comentarios.add(comentario);
+        }
       });
-      return foruns;
+      return comentarios;
     } on FirebaseException catch (e) {
       print(e.toString());
     }
-    return foruns;
+    return comentarios;
   }
 }

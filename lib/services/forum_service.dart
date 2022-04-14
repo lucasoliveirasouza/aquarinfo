@@ -29,7 +29,7 @@ class ForumService {
       snapshot.docs.forEach((d) {
         print(d.id);
 
-        Forum forum = Forum(d["categoria"], d["assunto"], d["descricao"],
+        Forum forum = Forum(d.id, d["categoria"], d["assunto"], d["descricao"],
             d["usuario"], d["hora"]);
         foruns.add(forum);
       });

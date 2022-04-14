@@ -67,7 +67,9 @@ class _ForumViewState extends State<ForumView> {
                                     MaterialPageRoute(
                                       builder: (context) => ForumDetalhesView(
                                         forum: snapshot.data![index]!,
-                                        usuario: snapshot.data![index]!.usuario,
+                                        nome: snapshot.data![index]!.usuario,
+                                        usuario: widget.usuario,
+                                        idForum: snapshot.data![index]!.id,
                                       ),
                                     ),
                                   );
@@ -86,7 +88,9 @@ class _ForumViewState extends State<ForumView> {
                                     MaterialPageRoute(
                                       builder: (context) => ForumDetalhesView(
                                         forum: snapshot.data![index]!,
-                                        usuario: snapshot.data![index]!.usuario,
+                                        nome: snapshot.data![index]!.usuario,
+                                        usuario: widget.usuario,
+                                        idForum: snapshot.data![index]!.id,
                                       ),
                                     ),
                                   );
