@@ -81,7 +81,7 @@ class _ForumCadastroViewState extends State<ForumCadastroView> {
                 controller: descricao,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
-                  labelText: "Dúvidas/Sugestões/Dicas",
+                  labelText: "Dúvidas/Sugestões/Dicas/Outros",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       new Radius.circular(10.0),
