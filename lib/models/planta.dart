@@ -63,4 +63,11 @@ class Planta extends SerVivo{
   set crescimento(String value) {
     _crescimento = value;
   }
+
+
+  String toString() {
+    String retorno="";
+
+    return retorno;
+  }
 }
