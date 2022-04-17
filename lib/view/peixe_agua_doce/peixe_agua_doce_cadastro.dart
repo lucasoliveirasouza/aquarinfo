@@ -255,6 +255,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
                 child: Text("Cadastrar"),
                 onPressed: () {
                   if (
+                      imagem == '' ||
                       tipo == 'Selecione o tipo...' ||
                       dificuldade == 'Selecione a dificuldade...' ||
                       tipoAquario == 'Selecione o tipo...') {
