@@ -1,10 +1,10 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:infoquario/models/peixe_agua_salgada.dart';
+import 'package:infoquario/models/peixe.dart';
 import 'package:infoquario/widget/linha_tabela.dart';
 
 class PeixeAguaSalgadaDetalhesView extends StatefulWidget {
-  PeixeAguaSalgada peixe;
+  Peixe peixe;
   PeixeAguaSalgadaDetalhesView({Key? key, required this.peixe})
       : super(key: key);
 

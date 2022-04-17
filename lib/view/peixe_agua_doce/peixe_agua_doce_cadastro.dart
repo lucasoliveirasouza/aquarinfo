@@ -35,6 +35,7 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
   String imagem = "";
   String carregar = "Carregue uma imagem";
   String tipo = 'Selecione o tipo...';
+  String tipoAgua = 'Selecione o tipo...';
   String tipoAquario = 'Selecione o tipo...';
   String dificuldade = 'Selecione a dificuldade...';
   bool uploading = false;
@@ -95,6 +96,33 @@ class _PeixeAguaDoceCadastroViewState extends State<PeixeAguaDoceCadastroView> {
             FormFieldPadrao(
               controle: origem,
               title: "Origem",
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              child: DropdownButtonFormField<String>(
+                value: tipo,
+                icon: Icon(null),
+                elevation: 15,
+                decoration: InputDecoration(labelText: 'Tipo de água'),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    tipo = newValue!;
+                  });
+                },
+                items: <String>[
+                  'Selecione o tipo...',
+                  'Doce',
+                  'Salgada'
+
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
             ),
             SizedBox(
               height: 20,

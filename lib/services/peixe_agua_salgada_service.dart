@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:infoquario/models/peixe_agua_salgada.dart';
+import 'package:infoquario/models/peixe.dart';
+
 
 class PeixeAguaSalgadaService {
   CollectionReference aguasalgada =
@@ -48,14 +49,14 @@ class PeixeAguaSalgadaService {
     });
   }
 
-  Future<List<PeixeAguaSalgada?>?> getAll(tipo) async {
-    List<PeixeAguaSalgada> posts = [];
+  Future<List<Peixe?>?> getAll(tipo) async {
+    List<Peixe> posts = [];
     QuerySnapshot snapshot = await FirebaseFirestore.instance
         .collection('peixeaguasalgada')
         .orderBy("nomePopular")
         .get();
     snapshot.docs.forEach((d) {
-      PeixeAguaSalgada peixe = PeixeAguaSalgada(
+      Peixe peixe = Peixe(
           d["nomePopular"],
           d["nomeCientifico"],
           d["classe"],
@@ -63,6 +64,7 @@ class PeixeAguaSalgadaService {
           d["familia"],
           d["genero"],
           d["origem"],
+          d["tipo"],
           d["tipo"],
           d["tamanho"],
           d["expectativa"],
