@@ -23,8 +23,7 @@ class _MenuViewState extends State<MenuView> {
   @override
   Widget build(BuildContext context) {
     final nome = UsuarioService().getUser(auth.currentUser!.email.toString());
-    final imagem =
-        UsuarioService().getImage(auth.currentUser!.email.toString());
+
 
     return Drawer(
       child: ListView(
@@ -42,7 +41,7 @@ class _MenuViewState extends State<MenuView> {
 
                       return Text(snapshot.data ?? "");
                     } else {
-                      return Text("Usuário");
+                      return Text("");
                     }
                   },
                 ),

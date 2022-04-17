@@ -27,7 +27,7 @@ class ForumService {
           .orderBy("assunto")
           .get();
       snapshot.docs.forEach((d) {
-        print(d.id);
+
 
         Forum forum = Forum(d.id, d["categoria"], d["assunto"], d["descricao"],
             d["usuario"], d["hora"]);
