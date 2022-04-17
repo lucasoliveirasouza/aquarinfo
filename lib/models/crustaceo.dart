@@ -1,23 +1,6 @@
-class Crustaceo {
-  late String nomePopular;
-  late String nomeCientifico;
-  late String classe;
-  late String ordem;
-  late String familia;
-  late String genero;
-  late String origem;
-  late String tipo;
-  late String tipoHabitat;
-  late String tamanho;
-  late String expectativa;
-  late String populacaoMinima;
-  late String tipoAquario;
-  late String volumeMinimo;
-  late String fachadaMinima;
-  late String phAgua;
-  late String temperatura;
-  late String dificuldade;
-  late String imagem;
+import 'package:infoquario/models/animal_aquatico.dart';
+
+class Crustaceo extends AnimalAquatico {
 
   Crustaceo(
       String nomePopular,
@@ -27,8 +10,8 @@ class Crustaceo {
       String familia,
       String genero,
       String origem,
+      String tipoAgua,
       String tipo,
-      String tipoHabitat,
       String tamanho,
       String expectativa,
       String populacaoMinima,
@@ -38,25 +21,6 @@ class Crustaceo {
       String phAgua,
       String temperatura,
       String dificuldade,
-      String imagem) {
-    this.nomePopular = nomePopular;
-    this.nomeCientifico = nomeCientifico;
-    this.classe = classe;
-    this.ordem = ordem;
-    this.familia = familia;
-    this.genero = genero;
-    this.origem =origem;
-    this.tipo = tipo;
-    this.tipoHabitat = tipoHabitat;
-    this.tamanho = tamanho;
-    this.expectativa = expectativa;
-    this.populacaoMinima = populacaoMinima;
-    this.tipoAquario = tipoAquario;
-    this.volumeMinimo = volumeMinimo;
-    this.fachadaMinima = fachadaMinima;
-    this.phAgua = phAgua;
-    this.temperatura = temperatura;
-    this.dificuldade = dificuldade;
-    this.imagem = imagem;
-  }
+      String imagem) : super(nomePopular, nomeCientifico, classe, ordem, familia, genero, origem, tipoAgua, tipo, tamanho, expectativa, populacaoMinima, tipoAquario, volumeMinimo, fachadaMinima, phAgua, temperatura, dificuldade, imagem);
+
 }
