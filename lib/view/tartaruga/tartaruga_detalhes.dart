@@ -103,6 +103,13 @@ class _TartarugaDetalhesViewState extends State<TartarugaDetalhesView> {
               height: 3,
             ),
             LinhaTabela(
+              valor: widget.tartaruga.tipoAgua,
+              title: "Tipo água:",
+            ),
+            SizedBox(
+              height: 3,
+            ),
+            LinhaTabela(
               valor: widget.tartaruga.tipo,
               title: "Tipo:",
             ),

@@ -1,10 +1,5 @@
 class Usuario{
-  late String nome, email, senha, imagem;
+  String _nome, _email, _senha, _imagem;
 
-  Usuario(String nome, String email, String senha,String imagem){
-    this.nome = nome;
-    this.email = email;
-    this.senha = senha;
-    this.imagem = imagem;
-  }
+  Usuario(this._nome, this._email, this._senha, this._imagem);
 }

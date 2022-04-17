@@ -112,8 +112,8 @@ class _TartarugaCadastroViewViewState extends State<TartarugaCadastroView> {
                 },
                 items: <String>[
                   'Selecione o tipo...',
-                  'Água doce',
-                  'Água salgada',
+                  'Tartaruga',
+                  'Cágado',
                 ].map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -263,6 +263,7 @@ class _TartarugaCadastroViewViewState extends State<TartarugaCadastroView> {
                         familia.text,
                         genero.text,
                         origem.text,
+                        "Doce",
                         tipo,
                         tamanho.text,
                         expectativa.text,
