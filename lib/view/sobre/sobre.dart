@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:infoquario/view/sobre/licencas.dart';
 
 class SobreView extends StatefulWidget {
   const SobreView({Key? key}) : super(key: key);
@@ -75,7 +76,14 @@ class _SobreViewState extends State<SobreView> {
 
                     ),
                   ),
-                  onPressed: () {  },
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LicencasView()
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
