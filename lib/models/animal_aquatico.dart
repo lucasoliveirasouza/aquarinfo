@@ -4,6 +4,8 @@ import 'package:infoquario/models/ser_vivo.dart';
 class AnimalAquatico extends SerVivo{
   late String _tipoAgua,_expectativa, _populacaoMinima, _tipoAquario,  _volumeMinimo, _fachadaMinima, _phAgua, _temperatura;
 
+
+
   AnimalAquatico(
       String nomePopular,
       String nomeCientifico,
@@ -35,6 +37,7 @@ class AnimalAquatico extends SerVivo{
     this._temperatura = temperatura;
 
   }
+  get tipoAgua => _tipoAgua;
 
   get temperatura => _temperatura;
 

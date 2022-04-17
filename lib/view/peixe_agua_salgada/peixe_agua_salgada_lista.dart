@@ -2,7 +2,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/models/peixe.dart';
-import 'package:infoquario/services/peixe_agua_salgada_service.dart';
+import 'package:infoquario/services/peixe_service.dart';
 import 'package:infoquario/view/peixe_agua_salgada/peixe_agua_salgada_detalhes.dart';
 
 
@@ -22,7 +22,7 @@ class _PeixeAguaSalgadaListaViewState extends State<PeixeAguaSalgadaListaView> {
   @override
   Widget build(BuildContext context) {
     Future<List<Peixe?>?> futureList =
-    PeixeAguaSalgadaService().getAll(widget.tipo);
+    PeixeService().getAll(widget.tipo,"Salgada");
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.tipo),

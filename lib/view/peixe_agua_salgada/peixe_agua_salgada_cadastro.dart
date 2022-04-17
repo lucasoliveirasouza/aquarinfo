@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:infoquario/services/peixe_agua_salgada_service.dart';
+import 'package:infoquario/services/peixe_service.dart';
 import 'package:infoquario/widget/form_field.dart';
 
 class PeixeAguaSalgadaCadastroView extends StatefulWidget {
@@ -36,7 +36,6 @@ class _PeixeAguaSalgadaCadastroViewState
   String imagem = "";
   String carregar = "Carregue uma imagem";
   String tipo = 'Selecione o tipo...';
-  String tipoAgua = 'Selecione o tipo...';
   String tipoAquario = 'Selecione o tipo...';
   String dificuldade = 'Selecione a dificuldade...';
   bool uploading = false;
@@ -101,33 +100,7 @@ class _PeixeAguaSalgadaCadastroViewState
             SizedBox(
               height: 20,
             ),
-            Container(
-              child: DropdownButtonFormField<String>(
-                value: tipoAgua,
-                icon: Icon(null),
-                elevation: 15,
-                decoration: InputDecoration(labelText: 'Tipo de água'),
-                onChanged: (String? newValue) {
-                  setState(() {
-                    tipoAgua = newValue!;
-                  });
-                },
-                items: <String>[
-                  'Selecione o tipo...',
-                  'Doce',
-                  'Salgada'
 
-                ].map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
             Container(
               child: DropdownButtonFormField<String>(
                 value: tipo,
@@ -279,7 +252,7 @@ class _PeixeAguaSalgadaCadastroViewState
               child: ElevatedButton(
                 child: Text("Cadastrar"),
                 onPressed: () {
-                  if (imagem == "" ||
+                  if (
                       tipo == 'Selecione o tipo...' ||
                       dificuldade == 'Selecione a dificuldade...' ||
                       tipoAquario == 'Selecione o tipo...') {
@@ -287,7 +260,7 @@ class _PeixeAguaSalgadaCadastroViewState
                         content: Text(
                             "Verifique se uma imagem foi anexada ou todos os campos foram preenchidos")));
                   } else {
-                    PeixeAguaSalgadaService().registrarAguaSalgada(
+                    PeixeService().registrarPeixe(
                         nomePopular.text,
                         nomeCientifico.text,
                         classe.text,
@@ -295,6 +268,7 @@ class _PeixeAguaSalgadaCadastroViewState
                         familia.text,
                         genero.text,
                         origem.text,
+                        "Salgada",
                         tipo,
                         tamanho.text,
                         expectativa.text,

@@ -1,7 +1,6 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:infoquario/models/peixe.dart';
-import 'package:infoquario/services/peixe_agua_doce_service.dart';
 import 'package:infoquario/widget/linha_tabela.dart';
 
 class PeixeAguaDoceDetalhesView extends StatefulWidget {
@@ -100,6 +99,13 @@ class _PeixeAguaDoceDetalhesViewState extends State<PeixeAguaDoceDetalhesView> {
             LinhaTabela(
               valor: widget.peixe.origem,
               title: "Origem:",
+            ),
+            SizedBox(
+              height: 3,
+            ),
+            LinhaTabela(
+              valor: widget.peixe.tipoAgua,
+              title: "Tipo água:",
             ),
             SizedBox(
               height: 3,

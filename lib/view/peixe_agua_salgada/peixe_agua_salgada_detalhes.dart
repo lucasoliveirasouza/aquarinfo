@@ -106,6 +106,14 @@ class _PeixeAguaSalgadaDetalhesViewState
               height: 3,
             ),
             LinhaTabela(
+              valor: widget.peixe.tipoAgua,
+              title: "Tipo água:",
+            ),
+            SizedBox(
+              height: 3,
+            ),
+
+            LinhaTabela(
               valor: widget.peixe.tipo,
               title: "Tipo:",
             ),
