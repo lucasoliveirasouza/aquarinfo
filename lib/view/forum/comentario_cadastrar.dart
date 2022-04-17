@@ -1,5 +1,6 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:infoquario/models/comentario.dart';
 import 'package:infoquario/services/comentario_service.dart';
 
 class ComentarioCadastrarView extends StatefulWidget {
@@ -54,16 +55,9 @@ class _ComentarioCadastrarViewState extends State<ComentarioCadastrarView> {
 
                   String hora =
                       "Às ${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')} de ${now.day.toString().padLeft(2, '0')}/${now.month.toString().padLeft(2, '0')}/${now.year.toString()}";
-
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(ComentarioService()
-                          .cadastrarComentario(
-                            descricao.text,
-                            widget.usuario,
-                            hora,
-                            widget.idForum,
-                          )
-                          .toString())));
+                  Comentario comentario = Comentario(descricao.text, widget.usuario, hora, widget.idForum);
+                  print(comentario);
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(ComentarioService().cadastrarComentario(comentario).toString())));
                   Navigator.of(context).pop();
                 },
               ),

@@ -5,7 +5,6 @@ class TartarugaService {
   CollectionReference tartaruga =
       FirebaseFirestore.instance.collection('tartaruga');
 
-  TartarugaService() {}
 
   void registrarTartaruga(
       nomePopular,

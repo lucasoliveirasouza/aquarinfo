@@ -4,8 +4,6 @@ import 'package:infoquario/models/planta.dart';
 class PlantaService {
   CollectionReference planta = FirebaseFirestore.instance.collection('planta');
 
-  PlantaService() {}
-
   void registrarPlanta(
       nomePopular,
       nomeCientifico,

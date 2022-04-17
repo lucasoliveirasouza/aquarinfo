@@ -7,9 +7,9 @@ class ForumService {
       CollectionReference forum =
           FirebaseFirestore.instance.collection('forum');
       forum.add({
-        'categoria': categoria, // John Doe
+        'categoria': categoria,
         'assunto': assunto,
-        'descricao': descricao, // Stokes and Sons
+        'descricao': descricao,
         'usuario': usuario,
         'hora': hora,
       });
