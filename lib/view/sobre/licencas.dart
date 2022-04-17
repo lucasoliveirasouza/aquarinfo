@@ -24,7 +24,7 @@ class _LicencasViewState extends State<LicencasView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Licenças"),
+        title: Text("Licença"),
       ),
       body: Container(
         padding: EdgeInsets.all(15),
