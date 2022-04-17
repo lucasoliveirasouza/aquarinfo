@@ -1,14 +1,14 @@
 
 import 'package:flutter/material.dart';
 
-class AboutView extends StatefulWidget {
-  const AboutView({Key? key}) : super(key: key);
+class SobreView extends StatefulWidget {
+  const SobreView({Key? key}) : super(key: key);
 
   @override
-  _AboutViewState createState() => _AboutViewState();
+  _SobreViewState createState() => _SobreViewState();
 }
 
-class _AboutViewState extends State<AboutView> {
+class _SobreViewState extends State<SobreView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +52,7 @@ class _AboutViewState extends State<AboutView> {
               ),
               Center(
                 child: Text(
-                  "VERSÃO 1.0.0",
+                  "Versãos 1.0.0",
                   style: TextStyle(
                     color: Colors.green.shade400,
                     fontWeight: FontWeight.bold,
@@ -62,6 +62,21 @@ class _AboutViewState extends State<AboutView> {
               ),
               SizedBox(
                 height: 25,
+              ),
+              Center(
+                child: TextButton(
+
+                  child: Text(
+                    "LICENÇAS",
+                    style: TextStyle(
+                      color: Colors.green.shade400,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+
+                    ),
+                  ),
+                  onPressed: () {  },
+                ),
               ),
             ],
           ),
