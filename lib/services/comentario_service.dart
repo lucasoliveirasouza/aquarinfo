@@ -5,9 +5,9 @@ import 'package:infoquario/models/forum.dart';
 class ComentarioService {
   String? cadastrarComentario(comentario) {
     try {
-      CollectionReference comentario =
+      CollectionReference comentarioColecao =
           FirebaseFirestore.instance.collection('comentario');
-      comentario.add({
+      comentarioColecao.add({
         comentario
       });
       return "Comentário cadastrado!";

@@ -3,12 +3,10 @@ import 'package:infoquario/models/tartaruga.dart';
 
 class TartarugaService {
 
-
-
   String? registrarTartaruga(tartaruga) {
     try {
-      CollectionReference tartaruga = FirebaseFirestore.instance.collection('tartaruga');
-      tartaruga.add({tartaruga});
+      CollectionReference tartarugaColecao = FirebaseFirestore.instance.collection('tartaruga');
+      tartarugaColecao.add({tartaruga});
       return "Comentário cadastrado!";
     } on FirebaseException catch (e) {
       return e.message;

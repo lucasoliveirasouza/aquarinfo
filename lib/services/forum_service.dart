@@ -4,9 +4,9 @@ import 'package:infoquario/models/forum.dart';
 class ForumService {
   String? cadastrarForum(categoria, assunto, descricao, usuario, hora) {
     try {
-      CollectionReference forum =
+      CollectionReference forumColecao =
           FirebaseFirestore.instance.collection('forum');
-      forum.add({
+      forumColecao.add({
         'categoria': categoria,
         'assunto': assunto,
         'descricao': descricao,

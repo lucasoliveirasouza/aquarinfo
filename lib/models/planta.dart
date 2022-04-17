@@ -68,6 +68,24 @@ class Planta extends SerVivo{
   String toString() {
     String retorno="";
 
+    retorno+= 'nomePopular:' + nomePopular + ',';
+    retorno+= 'nomeCientifico:' + nomeCientifico + ',';
+    retorno+= 'classe:' + classe + ',';
+    retorno+= 'ordem:' + ordem + ',';
+    retorno+= 'familia:' + familia + ',';
+    retorno+= 'genero:' + genero + ',';
+    retorno+= 'origem:' + origem + ',';
+    retorno+= 'tipo:' + tipo + ',';
+    retorno+= 'tamanho:' + tamanho + ',';
+    retorno+= 'dificuldade:' + dificuldade + ',';
+    retorno+= 'crescimento:' + crescimento + ',';
+    retorno+= 'iluminacao:' + iluminacao + ',';
+    retorno+= 'substrato:' + substrato + ',';
+    retorno+= 'phAgua:' + phAgua + ',';
+    retorno+= 'temperatura:' + temperatura + ',';
+    retorno+= 'imagem:' + imagem + ',';
+
+
     return retorno;
   }
 }

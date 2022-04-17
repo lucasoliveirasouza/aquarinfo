@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:infoquario/models/planta.dart';
 import 'package:infoquario/services/planta_service.dart';
 import 'package:infoquario/widget/form_field.dart';
 
@@ -273,7 +274,7 @@ class _PlantaCadastroViewState extends State<PlantaCadastroView> {
                         content: Text(
                             "Verifique se uma imagem foi anexada ou todos os campos foram preenchidos")));
                   } else {
-                    PlantaService().registrarPlanta(
+                    Planta planta = Planta(
                         nomePopular.text,
                         nomeCientifico.text,
                         classe.text,
@@ -289,9 +290,11 @@ class _PlantaCadastroViewState extends State<PlantaCadastroView> {
                         substrato.text,
                         phAgua.text,
                         temperatura.text,
-                        imagem);
+                        imagem
+                    );
+
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Crustáceo adicionado com sucesso")));
+                        content: Text(PlantaService().registrarPlanta(planta).toString())));
                     Navigator.of(context).pop();
                   }
                 },

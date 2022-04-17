@@ -7,9 +7,9 @@ class CrustaceoService {
 
   String? registrarCrustaceo(crustaceo) {
     try {
-      CollectionReference crustaceo =
+      CollectionReference crustaceoColecao =
       FirebaseFirestore.instance.collection('crustaceo');
-      crustaceo.add({crustaceo});
+      crustaceoColecao.add({crustaceo});
       return "Comentário cadastrado!";
     } on FirebaseException catch (e) {
       return e.message;
