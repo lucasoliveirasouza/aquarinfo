@@ -47,4 +47,5 @@ app.*.map.json
 /android/app/release
 
 /android/firebase_app_id_file.json
-
+lib/generated_plugin_registrant.dart
+lib/firebase_options.dart
