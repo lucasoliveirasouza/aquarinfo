@@ -1,6 +1,6 @@
 # InfoQuario
 
-Um projeto sobre informações relacionadas ao aquarismo
+Um projeto sobre informações relacionadas ao aquarismo. A seguir algumas das telas desse aplicativo:
 
 
 
