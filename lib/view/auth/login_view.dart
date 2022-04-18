@@ -38,7 +38,7 @@ class _LoginViewState extends State<LoginView> {
             ),
             Center(
               child: Text(
-                "Bem Vindo ao Infoquário",
+                "Bem-vindo ao Infoquário",
                 style: TextStyle(
                   fontSize: 25,
                   color: Colors.green,
