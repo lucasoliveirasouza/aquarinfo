@@ -1,10 +1,7 @@
-
 import 'package:infoquario/models/ser_vivo.dart';
 
-class Planta extends SerVivo{
-
+class Planta extends SerVivo {
   late String _crescimento, _iluminacao, _substrato, _phAgua, _temperatura;
-
 
   Planta(
       String nomePopular,
@@ -22,16 +19,14 @@ class Planta extends SerVivo{
       String substrato,
       String phAgua,
       String temperatura,
-      String imagem
-      )
-      : super(nomePopular,nomeCientifico,classe,ordem,familia,genero,origem,tipo,tamanho,dificuldade,imagem) {
-
+      String imagem)
+      : super(nomePopular, nomeCientifico, classe, ordem, familia, genero,
+            origem, tipo, tamanho, dificuldade, imagem) {
     this.crescimento = crescimento;
     this.iluminacao = iluminacao;
     this.substrato = substrato;
     this.phAgua = phAgua;
     this.temperatura = temperatura;
-
   }
 
   get temperatura => _temperatura;
@@ -62,5 +57,28 @@ class Planta extends SerVivo{
 
   set crescimento(String value) {
     _crescimento = value;
+  }
+
+  String toString() {
+    String retorno = "";
+
+    retorno += 'nomePopular:' + nomePopular + ',';
+    retorno += 'nomeCientifico:' + nomeCientifico + ',';
+    retorno += 'classe:' + classe + ',';
+    retorno += 'ordem:' + ordem + ',';
+    retorno += 'familia:' + familia + ',';
+    retorno += 'genero:' + genero + ',';
+    retorno += 'origem:' + origem + ',';
+    retorno += 'tipo:' + tipo + ',';
+    retorno += 'tamanho:' + tamanho + ',';
+    retorno += 'dificuldade:' + dificuldade + ',';
+    retorno += 'crescimento:' + crescimento + ',';
+    retorno += 'iluminacao:' + iluminacao + ',';
+    retorno += 'substrato:' + substrato + ',';
+    retorno += 'phAgua:' + phAgua + ',';
+    retorno += 'temperatura:' + temperatura + ',';
+    retorno += 'imagem:' + imagem + ',';
+
+    return retorno;
   }
 }

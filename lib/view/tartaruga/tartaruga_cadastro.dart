@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:infoquario/models/tartaruga.dart';
 import 'package:infoquario/services/tartaruga_service.dart';
 import 'package:infoquario/widget/form_field.dart';
 
@@ -255,7 +256,8 @@ class _TartarugaCadastroViewViewState extends State<TartarugaCadastroView> {
                         content: Text(
                             "Verifique se uma imagem foi anexada ou todos os campos foram preenchidos")));
                   } else {
-                    TartarugaService().registrarTartaruga(
+
+                    Tartaruga tartaruga = Tartaruga(
                         nomePopular.text,
                         nomeCientifico.text,
                         classe.text,
@@ -275,8 +277,10 @@ class _TartarugaCadastroViewViewState extends State<TartarugaCadastroView> {
                         temperatura.text,
                         dificuldade,
                         imagem);
+
+
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Tartaruga adicionada com sucesso")));
+                        content: Text(TartarugaService().registrarTartaruga(tartaruga).toString())));
                     Navigator.of(context).pop();
                   }
                 },

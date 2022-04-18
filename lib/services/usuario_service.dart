@@ -8,9 +8,9 @@ class UsuarioService {
       CollectionReference usuarios =
           FirebaseFirestore.instance.collection('usuarios');
       usuarios.add({
-        'nome': nome, // John Doe
+        'nome': nome,
         'email': email,
-        'senha': senha, // Stokes and Sons
+        'senha': senha,
         'imagem': "",
       });
       return "Usuario cadastrado";

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:infoquario/models/crustaceo.dart';
 import 'package:infoquario/services/crustaceos_service.dart';
 import 'package:infoquario/widget/form_field.dart';
 
@@ -39,6 +40,8 @@ class _CrustaceoCadastroViewState extends State<CrustaceoCadastroView> {
   String dificuldade = 'Selecione a dificuldade...';
   bool uploading = false;
   double total = 0;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -278,8 +281,8 @@ class _CrustaceoCadastroViewState extends State<CrustaceoCadastroView> {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text(
                             "Verifique se uma imagem foi anexada ou todos os campos foram preenchidos")));
-                  } else {
-                    CrustaceoService().registrarCrustaceo(
+                  }else {
+                    Crustaceo crustaceo = Crustaceo(
                         nomePopular.text,
                         nomeCientifico.text,
                         classe.text,
@@ -287,8 +290,8 @@ class _CrustaceoCadastroViewState extends State<CrustaceoCadastroView> {
                         familia.text,
                         genero.text,
                         origem.text,
-                        tipo,
                         tipoHabitat,
+                        tipo,
                         tamanho.text,
                         expectativa.text,
                         populacaoMinima.text,
@@ -299,8 +302,11 @@ class _CrustaceoCadastroViewState extends State<CrustaceoCadastroView> {
                         temperatura.text,
                         dificuldade,
                         imagem);
+
+
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Crustáceo adicionado com sucesso")));
+                        content: Text(CrustaceoService().registrarCrustaceo(
+                            crustaceo).toString())));
                     Navigator.of(context).pop();
                   }
                 },

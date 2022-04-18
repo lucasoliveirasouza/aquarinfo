@@ -1,10 +1,14 @@
-
 import 'package:infoquario/models/ser_vivo.dart';
 
-class AnimalAquatico extends SerVivo{
-  late String _tipoAgua,_expectativa, _populacaoMinima, _tipoAquario,  _volumeMinimo, _fachadaMinima, _phAgua, _temperatura;
-
-
+class AnimalAquatico extends SerVivo {
+  late String _tipoAgua,
+      _expectativa,
+      _populacaoMinima,
+      _tipoAquario,
+      _volumeMinimo,
+      _fachadaMinima,
+      _phAgua,
+      _temperatura;
 
   AnimalAquatico(
       String nomePopular,
@@ -26,7 +30,8 @@ class AnimalAquatico extends SerVivo{
       String temperatura,
       String dificuldade,
       String imagem)
-      : super(nomePopular,nomeCientifico,classe,ordem,familia,genero,origem,tipo,tamanho,dificuldade,imagem){
+      : super(nomePopular, nomeCientifico, classe, ordem, familia, genero,
+            origem, tipo, tamanho, dificuldade, imagem) {
     this._tipoAgua = tipoAgua;
     this._expectativa = expectativa;
     this._populacaoMinima = populacaoMinima;
@@ -35,7 +40,6 @@ class AnimalAquatico extends SerVivo{
     this._fachadaMinima = fachadaMinima;
     this._phAgua = phAgua;
     this._temperatura = temperatura;
-
   }
   get tipoAgua => _tipoAgua;
 

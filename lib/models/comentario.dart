@@ -3,6 +3,17 @@ class Comentario {
 
   Comentario(this._descricao, this._usuario, this._hora, this._idForum);
 
+  String toString(){
+    String retorno = "";
+
+    retorno+= 'descricao:' + _descricao + ',';
+    retorno+= 'usuario:' + _usuario + ',';
+    retorno+= 'hora:' + _hora + ',';
+    retorno+= 'idForum:' + _idForum + ',';
+
+    return retorno;
+  }
+
   get idForum => _idForum;
 
   set idForum(value) {

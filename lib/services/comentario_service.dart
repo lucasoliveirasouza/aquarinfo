@@ -3,15 +3,12 @@ import 'package:infoquario/models/comentario.dart';
 import 'package:infoquario/models/forum.dart';
 
 class ComentarioService {
-  String? cadastrarComentario(descricao, usuario, hora, idForum) {
+  String? cadastrarComentario(comentario) {
     try {
-      CollectionReference comentario =
+      CollectionReference comentarioColecao =
           FirebaseFirestore.instance.collection('comentario');
-      comentario.add({
-        'descricao': descricao, // Stokes and Sons
-        'usuario': usuario,
-        'hora': hora,
-        'idForum': idForum,
+      comentarioColecao.add({
+        comentario
       });
       return "Comentário cadastrado!";
     } on FirebaseException catch (e) {
