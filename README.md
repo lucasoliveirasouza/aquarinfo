@@ -1,6 +1,6 @@
 # InfoQuario
 
-Um projeto sobre informações relacionadas ao aquarismo. A seguir algumas das telas desse aplicativo:
+Um projeto sobre informações relacionadas ao aquarismo. A seguir algumas das telas desse aplicativo, desenvolvidas com flutter, utilizando firebase para armazenamento:
 
 
 
